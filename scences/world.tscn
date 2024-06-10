@@ -15,6 +15,7 @@ size = Vector3(5, 0.1, 5)
 script = ExtResource("1_qdxbe")
 
 [node name="player" parent="." instance=ExtResource("1_rb7uy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08653, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87907, 1.49437, 0.252205)
