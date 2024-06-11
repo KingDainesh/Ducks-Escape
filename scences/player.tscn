@@ -10,6 +10,7 @@
 [node name="XROrigin3D" type="XROrigin3D"]
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
+keep_aspect = 0
 
 [node name="PlayerBody" type="CharacterBody3D" parent="."]
 top_level = true

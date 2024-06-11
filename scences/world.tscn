@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bchmcf5coy0vf"]
+[gd_scene load_steps=11 format=3 uid="uid://bchmcf5coy0vf"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_qdxbe"]
 [ext_resource type="PackedScene" uid="uid://cssyaom8welbq" path="res://scences/player.tscn" id="1_rb7uy"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_ctdy1"]
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="3_ncv6c"]
+[ext_resource type="PackedScene" uid="uid://d3del56bhdvfy" path="res://scences/pickable_capsule.tscn" id="4_yqqeh"]
+[ext_resource type="PackedScene" uid="uid://gmsqipyqc10s" path="res://scences/pickable_prism.tscn" id="5_bj3ml"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0hlh7"]
 size = Vector3(5, 0.1, 5)
@@ -11,23 +12,19 @@ size = Vector3(5, 0.1, 5)
 [sub_resource type="BoxMesh" id="BoxMesh_srl4o"]
 size = Vector3(5, 0.1, 5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dejvh"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8kdj5"]
+material = SubResource("StandardMaterial3D_dejvh")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yto5o"]
+
 [node name="world" type="Node3D"]
 script = ExtResource("1_qdxbe")
 
 [node name="player" parent="." instance=ExtResource("1_rb7uy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.08653, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.87907, 1.49437, 0.252205)
-mesh = SubResource("BoxMesh_ctdy1")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0154369, -2.38419e-07, -3.81164)
-mesh = SubResource("BoxMesh_ctdy1")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.76192, -1.62065, -0.204904)
-mesh = SubResource("BoxMesh_ctdy1")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
@@ -37,3 +34,21 @@ shape = SubResource("BoxShape3D_0hlh7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/CollisionShape3D"]
 mesh = SubResource("BoxMesh_srl4o")
+
+[node name="Table" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 1.5911, 0.516301, 0.0630305)
+mesh = SubResource("BoxMesh_8kdj5")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Table"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D"]
+shape = SubResource("BoxShape3D_yto5o")
+
+[node name="Cube" parent="." instance=ExtResource("3_ncv6c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62118, 1.08909, 0.1043)
+
+[node name="Capsule" parent="." instance=ExtResource("4_yqqeh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61261, 1.13967, -0.212581)
+
+[node name="Prism" parent="." instance=ExtResource("5_bj3ml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58054, 1.1453, 0.378675)

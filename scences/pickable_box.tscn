@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8l60rnugru40"]
+[gd_scene load_steps=5 format=3 uid="uid://bispdoj7gcnam"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_aukvm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dcsr8"]
 
@@ -14,7 +14,7 @@ material = SubResource("StandardMaterial3D_otwec")
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
-script = ExtResource("1")
+script = ExtResource("1_aukvm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

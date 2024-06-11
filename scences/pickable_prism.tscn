@@ -1,20 +1,20 @@
-[gd_scene load_steps=5 format=3 uid="uid://c8l60rnugru40"]
+[gd_scene load_steps=5 format=3 uid="uid://gmsqipyqc10s"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_tpm2g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dcsr8"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_otwec"]
-albedo_color = Color(1, 0.4, 1, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sp4rm"]
+albedo_color = Color(0.0862745, 1, 1, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_66xdp"]
-material = SubResource("StandardMaterial3D_otwec")
+[sub_resource type="PrismMesh" id="PrismMesh_i421i"]
+material = SubResource("StandardMaterial3D_sp4rm")
 
 [node name="PickableObject" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
-script = ExtResource("1")
+script = ExtResource("1_tpm2g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
@@ -22,4 +22,4 @@ shape = SubResource("BoxShape3D_dcsr8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-mesh = SubResource("BoxMesh_66xdp")
+mesh = SubResource("PrismMesh_i421i")
