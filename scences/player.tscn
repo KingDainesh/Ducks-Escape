@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cssyaom8welbq"]
+[gd_scene load_steps=8 format=3 uid="uid://cssyaom8welbq"]
 
 [ext_resource type="PackedScene" uid="uid://bpdj5njb8nhot" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_fullglove_hand.tscn" id="2_g741i"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="2_sxgqj"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="2_tmi7r"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_p7ten"]
 [ext_resource type="PackedScene" uid="uid://d1tl07geqm5xq" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_fullglove_hand.tscn" id="4_tdcrd"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="5_1jy0a"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="6_8xh8v"]
 
 [node name="XROrigin3D" type="XROrigin3D"]
@@ -27,6 +28,12 @@ pose = &"aim"
 
 [node name="FunctionPickup" parent="LeftHand" instance=ExtResource("4_p7ten")]
 
+[node name="FunctionPointer" parent="LeftHand" instance=ExtResource("5_1jy0a")]
+visible = false
+show_laser = 2
+laser_length = 1
+show_target = true
+
 [node name="RightHand" type="XRController3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01026, 0, -1.00691)
 tracker = &"right_hand"
@@ -38,3 +45,9 @@ pose = &"aim"
 turn_mode = 2
 
 [node name="FunctionPickup" parent="RightHand" instance=ExtResource("4_p7ten")]
+
+[node name="FunctionPointer" parent="RightHand" instance=ExtResource("5_1jy0a")]
+visible = false
+show_laser = 2
+laser_length = 1
+show_target = true

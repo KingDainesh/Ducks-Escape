@@ -10,7 +10,7 @@ albedo_color = Color(1, 0.0666667, 0.266667, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_k3dvb"]
 material = SubResource("StandardMaterial3D_it0a8")
 
-[node name="PickableObject" type="RigidBody3D"]
+[node name="PickableCapsule" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
