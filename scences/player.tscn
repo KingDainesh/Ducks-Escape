@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="5_1jy0a"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="6_8xh8v"]
 
-[node name="XROrigin3D" type="XROrigin3D"]
+[node name="player" type="XROrigin3D"]
 
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
 keep_aspect = 0
@@ -16,6 +16,7 @@ keep_aspect = 0
 [node name="PlayerBody" type="CharacterBody3D" parent="."]
 top_level = true
 script = ExtResource("6_8xh8v")
+player_calibrate_height = false
 
 [node name="LeftHand" type="XRController3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.889255, 0, -1.00212)
@@ -29,7 +30,6 @@ pose = &"aim"
 [node name="FunctionPickup" parent="LeftHand" instance=ExtResource("4_p7ten")]
 
 [node name="FunctionPointer" parent="LeftHand" instance=ExtResource("5_1jy0a")]
-visible = false
 show_laser = 2
 laser_length = 1
 show_target = true
@@ -47,7 +47,6 @@ turn_mode = 2
 [node name="FunctionPickup" parent="RightHand" instance=ExtResource("4_p7ten")]
 
 [node name="FunctionPointer" parent="RightHand" instance=ExtResource("5_1jy0a")]
-visible = false
 show_laser = 2
 laser_length = 1
 show_target = true

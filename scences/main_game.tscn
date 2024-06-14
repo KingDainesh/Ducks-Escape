@@ -1,4 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://borgpsutpb2am"]
+[gd_scene load_steps=9 format=3 uid="uid://borgpsutpb2am"]
+
+[ext_resource type="PackedScene" uid="uid://cssyaom8welbq" path="res://scences/player.tscn" id="1_fyfwv"]
+[ext_resource type="PackedScene" uid="uid://bispdoj7gcnam" path="res://scences/pickable_box.tscn" id="2_sesep"]
+[ext_resource type="PackedScene" uid="uid://d3del56bhdvfy" path="res://scences/pickable_capsule.tscn" id="3_3hy3g"]
+[ext_resource type="PackedScene" uid="uid://gmsqipyqc10s" path="res://scences/pickable_prism.tscn" id="4_3gl7i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_si20a"]
 size = Vector3(3.2, 0.1, 3)
@@ -40,3 +45,15 @@ shape = SubResource("BoxShape3D_qpitl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Wall X/CollisionShape3D"]
 mesh = SubResource("BoxMesh_3oho3")
+
+[node name="player" parent="." instance=ExtResource("1_fyfwv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="PickableObject" parent="." instance=ExtResource("2_sesep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15442, -4.84288e-08, -0.531691)
+
+[node name="PickableCapsule" parent="." instance=ExtResource("3_3hy3g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18966, -4.84288e-08, 0.0030973)
+
+[node name="PickablePrism" parent="." instance=ExtResource("4_3gl7i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20054, -4.84288e-08, 0.4083)

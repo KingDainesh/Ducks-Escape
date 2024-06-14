@@ -3,4 +3,5 @@ extends Control
 
 
 func _on_play_pressed():
-	pass # Replace with function body.
+	print("Changing")
+	get_tree().change_scene_to_file("res://scences/main_game.tscn")
