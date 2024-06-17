@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://caxto3q38dyro"
+path="res://.godot/imported/ducknest.obj-83be05a0d53328fc3629441bb141b5fb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/ducknest.obj-83be05a0d53328fc3629441bb141b5fb.mesh"]
+
+source_file="res://assets/ducknest.obj"
+dest_files=["res://.godot/imported/ducknest.obj-83be05a0d53328fc3629441bb141b5fb.mesh", "res://.godot/imported/ducknest.obj-83be05a0d53328fc3629441bb141b5fb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
