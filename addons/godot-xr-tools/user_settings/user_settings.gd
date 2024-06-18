@@ -11,6 +11,9 @@ enum WebXRPrimary {
 	TRACKPAD,
 }
 
+## Testing puzzles
+var has_button_pressed : String = "No"
+
 
 @export_group("Input")
 

@@ -26,6 +26,7 @@ pose = &"aim"
 [node name="LeftHand" parent="LeftHand" instance=ExtResource("2_g741i")]
 
 [node name="MovementDirect" parent="LeftHand" instance=ExtResource("2_tmi7r")]
+strafe = true
 
 [node name="FunctionPickup" parent="LeftHand" instance=ExtResource("4_p7ten")]
 

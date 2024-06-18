@@ -14,3 +14,9 @@ func _ready():
 		get_viewport().use_xr = true
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
+
+func _input(event):
+	print(event)
+	if str(event) == "":
+		if XRToolsUserSettings.has_button_pressed == "Yes":
+			$Box/Front.queue_free()

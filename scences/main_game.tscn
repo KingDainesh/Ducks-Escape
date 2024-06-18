@@ -50,10 +50,10 @@ mesh = SubResource("BoxMesh_3oho3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="PickableObject" parent="." instance=ExtResource("2_sesep")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15442, -4.84288e-08, -0.531691)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15442, 0.154543, -0.531691)
 
 [node name="PickableCapsule" parent="." instance=ExtResource("3_3hy3g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18966, -4.84288e-08, 0.0030973)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18966, 0.154543, 0.0030973)
 
 [node name="PickablePrism" parent="." instance=ExtResource("4_3gl7i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20054, -4.84288e-08, 0.4083)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.20054, 0.154543, 0.4083)
