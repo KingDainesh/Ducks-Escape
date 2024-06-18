@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cd1au4jdcsprv"
+path="res://.godot/imported/bars.obj-cb1344a8fea57802d72860d0ae6b094d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/bars.obj-cb1344a8fea57802d72860d0ae6b094d.mesh"]
+
+source_file="res://assets/bars.obj"
+dest_files=["res://.godot/imported/bars.obj-cb1344a8fea57802d72860d0ae6b094d.mesh", "res://.godot/imported/bars.obj-cb1344a8fea57802d72860d0ae6b094d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
