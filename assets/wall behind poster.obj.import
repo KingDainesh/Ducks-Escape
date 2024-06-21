@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://w1tqx6syx7hg"
+path="res://.godot/imported/wall behind poster.obj-c9cc22708d7b785c717c567c3e8ddcf4.mesh"
+
+[deps]
+
+files=["res://.godot/imported/wall behind poster.obj-c9cc22708d7b785c717c567c3e8ddcf4.mesh"]
+
+source_file="res://assets/wall behind poster.obj"
+dest_files=["res://.godot/imported/wall behind poster.obj-c9cc22708d7b785c717c567c3e8ddcf4.mesh", "res://.godot/imported/wall behind poster.obj-c9cc22708d7b785c717c567c3e8ddcf4.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
