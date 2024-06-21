@@ -18,6 +18,5 @@ func _ready():
 func _input(event):
 	print(event)
 	print(XRToolsUserSettings.has_button_pressed)
-	if str(event) == "":
-		if XRToolsUserSettings.has_button_pressed == "Yes":
-			$Box/Front.queue_free()
+	if XRToolsUserSettings.has_button_pressed == "Yes":
+		$Box/Front.queue_free()
