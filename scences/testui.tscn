@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dhw6d8p6ipysn"]
 
-[ext_resource type="Script" path="res://scences/testui.gd" id="1_q8j60"]
+[ext_resource type="Script" path="res://scripts/testui.gd" id="1_q8j60"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
