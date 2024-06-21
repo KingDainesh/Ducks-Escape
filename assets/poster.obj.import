@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://k7tnplittpq3"
+path="res://.godot/imported/poster.obj-55b7705eca35c3af9a4f671dc9567235.mesh"
+
+[deps]
+
+files=["res://.godot/imported/poster.obj-55b7705eca35c3af9a4f671dc9567235.mesh"]
+
+source_file="res://assets/poster.obj"
+dest_files=["res://.godot/imported/poster.obj-55b7705eca35c3af9a4f671dc9567235.mesh", "res://.godot/imported/poster.obj-55b7705eca35c3af9a4f671dc9567235.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

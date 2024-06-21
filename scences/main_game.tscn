@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://borgpsutpb2am"]
+[gd_scene load_steps=32 format=3 uid="uid://borgpsutpb2am"]
 
 [ext_resource type="ArrayMesh" uid="uid://caxto3q38dyro" path="res://assets/ducknest.obj" id="1_gfdoq"]
 [ext_resource type="ArrayMesh" uid="uid://sleq3n1eivoy" path="res://assets/mirror.obj" id="1_r5rxc"]
@@ -7,6 +7,8 @@
 [ext_resource type="ArrayMesh" uid="uid://cyuaqtcd67ct4" path="res://assets/sink.obj" id="4_f7yvc"]
 [ext_resource type="PackedScene" uid="uid://cssyaom8welbq" path="res://scences/player.tscn" id="5_niw2y"]
 [ext_resource type="ArrayMesh" uid="uid://cd1au4jdcsprv" path="res://assets/bars.obj" id="7_5rvca"]
+[ext_resource type="ArrayMesh" uid="uid://k7tnplittpq3" path="res://assets/poster.obj" id="8_rauy0"]
+[ext_resource type="ArrayMesh" uid="uid://br4knb3x5eqpb" path="res://assets/switch.obj" id="9_ncdem"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_si20a"]
 size = Vector3(3.2, 0.1, 3)
@@ -187,6 +189,14 @@ shape = SubResource("BoxShape3D_qpitl")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cell/Wall X/CollisionShape3D"]
 mesh = SubResource("BoxMesh_3oho3")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Cell/Wall X"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.55, 1, 0)
+visible = false
+shape = SubResource("BoxShape3D_qpitl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cell/Wall X/CollisionShape3D2"]
+mesh = SubResource("BoxMesh_3oho3")
+
 [node name="Wall -Z" type="StaticBody3D" parent="Cell"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cell/Wall -Z"]
@@ -243,3 +253,11 @@ surface_material_override/0 = SubResource("StandardMaterial3D_punj0")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Door"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.950465, 1.0417, 1.44227)
 shape = SubResource("BoxShape3D_6jpl8")
+
+[node name="Poster" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 0.941615, 1.11009, 0.951469)
+mesh = ExtResource("8_rauy0")
+
+[node name="Switch" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.938452, 0, 3.90618)
+mesh = ExtResource("9_ncdem")
