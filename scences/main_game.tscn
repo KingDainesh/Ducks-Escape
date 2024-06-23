@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://borgpsutpb2am"]
+[gd_scene load_steps=33 format=3 uid="uid://borgpsutpb2am"]
 
 [ext_resource type="ArrayMesh" uid="uid://caxto3q38dyro" path="res://assets/ducknest.obj" id="1_gfdoq"]
 [ext_resource type="ArrayMesh" uid="uid://sleq3n1eivoy" path="res://assets/mirror.obj" id="1_r5rxc"]
@@ -9,6 +9,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cd1au4jdcsprv" path="res://assets/bars.obj" id="7_5rvca"]
 [ext_resource type="ArrayMesh" uid="uid://k7tnplittpq3" path="res://assets/poster.obj" id="8_rauy0"]
 [ext_resource type="ArrayMesh" uid="uid://br4knb3x5eqpb" path="res://assets/switch.obj" id="9_ncdem"]
+[ext_resource type="ArrayMesh" uid="uid://de5njd4s8nir4" path="res://assets/Wall_With_Hole.obj" id="10_3m8e7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_si20a"]
 size = Vector3(3.2, 0.1, 3)
@@ -261,3 +262,7 @@ mesh = ExtResource("8_rauy0")
 [node name="Switch" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.938452, 0, 3.90618)
 mesh = ExtResource("9_ncdem")
+
+[node name="WallWithHole" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.958745, 0, -0.284266, 0, 1, 0, 0.284266, 0, -0.958745, -3.75635, -2.38419e-07, 1.51131)
+mesh = ExtResource("10_3m8e7")
