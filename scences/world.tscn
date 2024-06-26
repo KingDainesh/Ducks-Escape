@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bchmcf5coy0vf"]
+[gd_scene load_steps=22 format=3 uid="uid://bchmcf5coy0vf"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_qdxbe"]
 [ext_resource type="PackedScene" uid="uid://cssyaom8welbq" path="res://scences/player.tscn" id="1_rb7uy"]
+[ext_resource type="Script" path="res://scences/Table.gd" id="3_jjkem"]
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="3_ncv6c"]
 [ext_resource type="PackedScene" uid="uid://d3del56bhdvfy" path="res://scences/pickable_capsule.tscn" id="4_yqqeh"]
 [ext_resource type="PackedScene" uid="uid://gmsqipyqc10s" path="res://scences/pickable_prism.tscn" id="5_bj3ml"]
@@ -21,6 +22,22 @@ albedo_color = Color(1, 1, 0, 1)
 material = SubResource("StandardMaterial3D_dejvh")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yto5o"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_oss36"]
+height = 0.1
+radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_857cn"]
+transparency = 1
+albedo_color = Color(0, 0, 0, 0.733333)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jyogp"]
+material = SubResource("StandardMaterial3D_857cn")
+top_radius = 0.1
+bottom_radius = 0.1
+height = 0.1
+radial_segments = 360
+rings = 1
 
 [sub_resource type="BoxMesh" id="BoxMesh_xbmsh"]
 size = Vector3(0.7, 0.1, 0.7)
@@ -55,14 +72,43 @@ mesh = SubResource("BoxMesh_srl4o")
 [node name="Table" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 1.5911, 0.516301, 0.0630305)
 mesh = SubResource("BoxMesh_8kdj5")
+script = ExtResource("3_jjkem")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Table"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Table/StaticBody3D"]
 shape = SubResource("BoxShape3D_yto5o")
 
+[node name="Prism" type="Area3D" parent="Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/Prism"]
+shape = SubResource("CylinderShape3D_oss36")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Table/Prism"]
+mesh = SubResource("CylinderMesh_jyogp")
+
+[node name="Capsule" type="Area3D" parent="Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.300116)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/Capsule"]
+shape = SubResource("CylinderShape3D_oss36")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Table/Capsule"]
+mesh = SubResource("CylinderMesh_jyogp")
+
+[node name="Cube" type="Area3D" parent="Table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.3)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table/Cube"]
+shape = SubResource("CylinderShape3D_oss36")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Table/Cube"]
+mesh = SubResource("CylinderMesh_jyogp")
+
 [node name="Cube" parent="." instance=ExtResource("3_ncv6c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62118, 1.08909, 0.1043)
+metadata/class = "Cube"
 
 [node name="Capsule" parent="." instance=ExtResource("4_yqqeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61261, 1.13967, -0.212581)
@@ -117,3 +163,5 @@ transform = Transform3D(1, 4.37114e-08, 4.37114e-08, -4.37114e-08, -4.37114e-08,
 screen_size = Vector2(0.4, 0.4)
 scene = ExtResource("7_gke6h")
 viewport_size = Vector2(640, 360)
+
+[connection signal="body_shape_entered" from="Table/Prism" to="Table" method="_on_prism_body_shape_entered"]
