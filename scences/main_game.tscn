@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://borgpsutpb2am"]
+[gd_scene load_steps=43 format=3 uid="uid://borgpsutpb2am"]
 
 [ext_resource type="ArrayMesh" uid="uid://caxto3q38dyro" path="res://assets/ducknest.obj" id="1_gfdoq"]
 [ext_resource type="ArrayMesh" uid="uid://sleq3n1eivoy" path="res://assets/mirror.obj" id="1_r5rxc"]
@@ -8,8 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://cssyaom8welbq" path="res://scences/player.tscn" id="5_niw2y"]
 [ext_resource type="ArrayMesh" uid="uid://cd1au4jdcsprv" path="res://assets/bars.obj" id="7_5rvca"]
 [ext_resource type="ArrayMesh" uid="uid://k7tnplittpq3" path="res://assets/poster.obj" id="8_rauy0"]
-[ext_resource type="ArrayMesh" uid="uid://br4knb3x5eqpb" path="res://assets/switch.obj" id="9_ncdem"]
 [ext_resource type="ArrayMesh" uid="uid://de5njd4s8nir4" path="res://assets/Wall_With_Hole.obj" id="10_3m8e7"]
+[ext_resource type="ArrayMesh" uid="uid://denaq4lcc0nbt" path="res://assets/Switch_Pivot.obj" id="10_161m4"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="11_ki1yx"]
+[ext_resource type="ArrayMesh" uid="uid://hirvwvxxegj4" path="res://assets/Switch_Pole.obj" id="12_7ggw4"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="13_i1eep"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="14_hx8oi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_si20a"]
 size = Vector3(3.2, 0.1, 3)
@@ -95,12 +99,18 @@ size = Vector3(4.32104, 1.8432, 0.527588)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6jpl8"]
 size = Vector3(1.297, 2.30481, 0.129707)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nf5ie"]
+size = Vector3(1, 0.470947, 0.397583)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_emjux"]
+height = 0.532807
+radius = 0.0218274
+
 [node name="Game" type="Node3D"]
 
 [node name="Cell" type="Node3D" parent="."]
 
 [node name="Floor" type="StaticBody3D" parent="Cell"]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cell/Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
@@ -171,7 +181,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.303587, 0)
 shape = SubResource("CylinderShape3D_qgf5a")
 
 [node name="Wall -X" type="StaticBody3D" parent="Cell"]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cell/Wall -X"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.55, 1, 0)
@@ -223,7 +232,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65108, 0.463501, 0.00085449
 shape = SubResource("BoxShape3D_1lttl")
 
 [node name="Wall -Z" type="StaticBody3D" parent="Cell"]
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cell/Wall -Z"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, -1.55)
@@ -234,7 +242,6 @@ mesh = SubResource("BoxMesh_3oho3")
 
 [node name="XROrigin3D" parent="." instance=ExtResource("5_niw2y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-visible = false
 
 [node name="Bars2" type="StaticBody3D" parent="."]
 transform = Transform3D(0.45, 0, 0, 0, 1.25, 0, 0, 0, 0.25, -0.0110567, 0.0601953, 1.44302)
@@ -286,7 +293,40 @@ transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 
 visible = false
 mesh = ExtResource("8_rauy0")
 
-[node name="Switch" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, 1.6, 0.929366, 0)
-visible = false
-mesh = ExtResource("9_ncdem")
+[node name="Switch" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.6, 0.929, 0)
+
+[node name="SwitchBottom" type="StaticBody3D" parent="Switch"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+
+[node name="SwitchPivot" type="MeshInstance3D" parent="Switch/SwitchBottom"]
+mesh = ExtResource("10_161m4")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/SwitchBottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24521, -0.000915527)
+shape = SubResource("BoxShape3D_nf5ie")
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="Switch"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+node_a = NodePath("../SwitchBottom")
+node_b = NodePath("../SwitchPole")
+angular_limit/lower = 0.0
+
+[node name="SwitchPole" type="RigidBody3D" parent="Switch"]
+script = ExtResource("11_ki1yx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/SwitchPole"]
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_emjux")
+
+[node name="SwitchPole2" type="MeshInstance3D" parent="Switch/SwitchPole"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, -8.88178e-16, 0, 0.25, 0.0212514, -0.0212514, 0)
+mesh = ExtResource("12_7ggw4")
+skeleton = NodePath("../../..")
+
+[node name="GrabPointHandLeft" parent="Switch/SwitchPole" instance=ExtResource("13_i1eep")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.15, 0.2, 0)
+
+[node name="GrabPointHandRight" parent="Switch/SwitchPole" instance=ExtResource("14_hx8oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15, 0.2, 0)
