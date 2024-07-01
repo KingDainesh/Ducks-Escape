@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_qdxbe"]
 [ext_resource type="PackedScene" uid="uid://cssyaom8welbq" path="res://scences/player.tscn" id="1_rb7uy"]
-[ext_resource type="Script" path="res://scences/Table.gd" id="3_jjkem"]
+[ext_resource type="Script" path="res://scripts/Table.gd" id="3_jjkem"]
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="3_ncv6c"]
 [ext_resource type="PackedScene" uid="uid://d3del56bhdvfy" path="res://scences/pickable_capsule.tscn" id="4_yqqeh"]
 [ext_resource type="PackedScene" uid="uid://gmsqipyqc10s" path="res://scences/pickable_prism.tscn" id="5_bj3ml"]
@@ -112,9 +112,11 @@ metadata/class = "Cube"
 
 [node name="Capsule" parent="." instance=ExtResource("4_yqqeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61261, 1.13967, -0.212581)
+metadata/Class = "Capsule"
 
 [node name="Prism" parent="." instance=ExtResource("5_bj3ml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58054, 1.1453, 0.378675)
+metadata/Class = "Prism"
 
 [node name="Viewport2Din3D" parent="." instance=ExtResource("6_kqlw4")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 1.28791, -2)
@@ -165,3 +167,8 @@ scene = ExtResource("7_gke6h")
 viewport_size = Vector2(640, 360)
 
 [connection signal="body_shape_entered" from="Table/Prism" to="Table" method="_on_prism_body_shape_entered"]
+[connection signal="body_shape_exited" from="Table/Prism" to="Table" method="_on_prism_body_shape_exited"]
+[connection signal="body_shape_entered" from="Table/Capsule" to="Table" method="_on_capsule_body_shape_entered"]
+[connection signal="body_shape_exited" from="Table/Capsule" to="Table" method="_on_capsule_body_shape_exited"]
+[connection signal="body_shape_entered" from="Table/Cube" to="Table" method="_on_cube_body_shape_entered"]
+[connection signal="body_shape_exited" from="Table/Cube" to="Table" method="_on_cube_body_shape_exited"]
