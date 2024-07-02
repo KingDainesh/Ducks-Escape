@@ -1,9 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://bchmcf5coy0vf"]
+[gd_scene load_steps=21 format=3 uid="uid://bchmcf5coy0vf"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_qdxbe"]
 [ext_resource type="PackedScene" uid="uid://cssyaom8welbq" path="res://scences/player.tscn" id="1_rb7uy"]
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="3_ncv6c"]
-[ext_resource type="Script" path="res://scripts/Table.gd" id="3_wgo3w"]
 [ext_resource type="PackedScene" uid="uid://d3del56bhdvfy" path="res://scences/pickable_capsule.tscn" id="4_yqqeh"]
 [ext_resource type="PackedScene" uid="uid://gmsqipyqc10s" path="res://scences/pickable_prism.tscn" id="5_bj3ml"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="6_kqlw4"]
@@ -72,7 +71,6 @@ mesh = SubResource("BoxMesh_srl4o")
 [node name="Table" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, 1.5911, 0.516301, 0.0630305)
 mesh = SubResource("BoxMesh_8kdj5")
-script = ExtResource("3_wgo3w")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Table"]
 
