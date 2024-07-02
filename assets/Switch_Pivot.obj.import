@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://denaq4lcc0nbt"
+path="res://.godot/imported/Switch_Pivot.obj-2e28a11e9800b14d5567eb9e1d4f521d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Switch_Pivot.obj-2e28a11e9800b14d5567eb9e1d4f521d.mesh"]
+
+source_file="res://assets/Switch_Pivot.obj"
+dest_files=["res://.godot/imported/Switch_Pivot.obj-2e28a11e9800b14d5567eb9e1d4f521d.mesh", "res://.godot/imported/Switch_Pivot.obj-2e28a11e9800b14d5567eb9e1d4f521d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
