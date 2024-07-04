@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://borgpsutpb2am"]
+[gd_scene load_steps=44 format=3 uid="uid://borgpsutpb2am"]
 
 [ext_resource type="ArrayMesh" uid="uid://caxto3q38dyro" path="res://assets/ducknest.obj" id="1_gfdoq"]
 [ext_resource type="ArrayMesh" uid="uid://sleq3n1eivoy" path="res://assets/mirror.obj" id="1_r5rxc"]
@@ -55,6 +55,9 @@ albedo_color = Color(0.2, 0.219608, 0.25098, 1)
 albedo_color = Color(0.878431, 0.686275, 0.105882, 1)
 emission_enabled = true
 emission = Color(0.878431, 0.686275, 0.105882, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_86vaq"]
+radius = 1.7
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qpitl"]
 size = Vector3(0.1, 2.2, 3)
@@ -149,36 +152,47 @@ shape = SubResource("BoxShape3D_si20a")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cell/Roof/CollisionShape3D"]
 mesh = SubResource("BoxMesh_c3ssn")
 
-[node name="RigidBody3D" type="RigidBody3D" parent="Cell/Roof"]
+[node name="PickableObject" type="RigidBody3D" parent="Cell/Roof"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00307941, 0)
 mass = 0.02
+script = ExtResource("11_ki1yx")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cell/Roof/RigidBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cell/Roof/PickableObject"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.303431, 0)
 mesh = SubResource("CylinderMesh_wfoyu")
 skin = SubResource("Skin_qfogv")
 skeleton = NodePath("")
 
-[node name="ConeTwistJoint3D" type="ConeTwistJoint3D" parent="Cell/Roof/RigidBody3D"]
+[node name="ConeTwistJoint3D" type="ConeTwistJoint3D" parent="Cell/Roof/PickableObject"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103838, 0)
 node_a = NodePath("../..")
 node_b = NodePath("..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cell/Roof/RigidBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cell/Roof/PickableObject"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.303587, 0)
 shape = SubResource("CylinderShape3D_qgf5a")
 
-[node name="Light" type="MeshInstance3D" parent="Cell/Roof/RigidBody3D"]
+[node name="Light" type="MeshInstance3D" parent="Cell/Roof/PickableObject"]
 transform = Transform3D(-0.025, -3.7749e-09, 0, 3.7749e-09, -0.025, 0, 0, 0, 0.025, 0, -0.520545, 0)
 mesh = ExtResource("3_3tokx")
 skeleton = NodePath("../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ecggd")
 surface_material_override/1 = SubResource("StandardMaterial3D_eshsy")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Cell/Roof/RigidBody3D"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Cell/Roof/PickableObject"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.37588e-14, -0.53928, 0)
 light_color = Color(1, 1, 0.670588, 1)
 omni_range = 3.23561
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Cell/Roof/PickableObject"]
+transform = Transform3D(-0.025, -3.7749e-09, 0, 3.7749e-09, -0.025, 0, 0, 0, 0.025, 0, -0.554684, 0)
+shape = SubResource("SphereShape3D_86vaq")
+
+[node name="GrabPointHandLeft" parent="Cell/Roof/PickableObject" instance=ExtResource("13_i1eep")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="GrabPointHandRight" parent="Cell/Roof/PickableObject" instance=ExtResource("14_hx8oi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="Wall -X" type="StaticBody3D" parent="Cell"]
 
@@ -309,26 +323,26 @@ shape = SubResource("BoxShape3D_nf5ie")
 [node name="HingeJoint3D" type="HingeJoint3D" parent="Switch"]
 transform = Transform3D(-1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, 0, 0, 0, 0.25, 0.000710398, 0.0446883, -0.00110972)
 node_a = NodePath("../SwitchBottom")
-node_b = NodePath("../SwitchPole")
+node_b = NodePath("../PickableObject")
 angular_limit/enable = true
 angular_limit/upper = 0.0
 angular_limit/lower = -3.14159
 
-[node name="SwitchPole" type="RigidBody3D" parent="Switch"]
+[node name="PickableObject" type="RigidBody3D" parent="Switch"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00159144, 0, -3.19481e-05)
 script = ExtResource("11_ki1yx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/SwitchPole"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/PickableObject"]
 transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0.140082, 0.137563, 0)
 shape = SubResource("CylinderShape3D_emjux")
 
-[node name="SwitchPole2" type="MeshInstance3D" parent="Switch/SwitchPole"]
+[node name="SwitchPole2" type="MeshInstance3D" parent="Switch/PickableObject"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, -8.88178e-16, 0, 0.25, 0.0212514, -0.0212514, 0)
 mesh = ExtResource("12_7ggw4")
 skeleton = NodePath("../../..")
 
-[node name="GrabPointHandLeft" parent="Switch/SwitchPole" instance=ExtResource("13_i1eep")]
+[node name="GrabPointHandLeft" parent="Switch/PickableObject" instance=ExtResource("13_i1eep")]
 transform = Transform3D(-0.707107, 0.707107, -8.74228e-08, 0.707107, 0.707107, 0, 6.18172e-08, -6.18172e-08, -1, 0.13295, 0.2, 0)
 
-[node name="GrabPointHandRight" parent="Switch/SwitchPole" instance=ExtResource("14_hx8oi")]
+[node name="GrabPointHandRight" parent="Switch/PickableObject" instance=ExtResource("14_hx8oi")]
 transform = Transform3D(-0.707107, 0.707107, 8.74228e-08, 0.707107, 0.707107, 0, -6.18172e-08, 6.18172e-08, -1, 0.184612, 0.148817, -0.0205381)
