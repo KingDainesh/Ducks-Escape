@@ -7,8 +7,10 @@ var Box = false
 func body_processing(entered, area, body_rid, body, body_shape_index, local_shape_index):
 	print(body_rid)
 	print(body)
-	if body.get_meta(Class):
-		if str(body.Metadata.Class) == "Capsule" and entered == true: Capsule = true
+	print(body.has_meta("Class"))
+	print(body.get_meta())
+	if body.has_meta():
+		if str(body.get_meta()) == "Capsule" and entered == true: Capsule = true
 		elif str(body.Metadata.Class) == "Capsule": Capsule = false
 		elif str(body.Metadata.Class) == "Prism" and entered == true: Prism = true
 		elif str(body.Metadata.Class) == "Prism": Prism = false
