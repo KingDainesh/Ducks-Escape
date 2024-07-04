@@ -328,7 +328,7 @@ mesh = ExtResource("12_7ggw4")
 skeleton = NodePath("../../..")
 
 [node name="GrabPointHandLeft" parent="Switch/SwitchPole" instance=ExtResource("13_i1eep")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.15, 0.2, 0)
+transform = Transform3D(-0.707107, 0.707107, -8.74228e-08, 0.707107, 0.707107, 0, 6.18172e-08, -6.18172e-08, -1, 0.13295, 0.2, 0)
 
 [node name="GrabPointHandRight" parent="Switch/SwitchPole" instance=ExtResource("14_hx8oi")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.15, 0.2, 0)
+transform = Transform3D(-0.707107, 0.707107, 8.74228e-08, 0.707107, 0.707107, 0, -6.18172e-08, 6.18172e-08, -1, 0.184612, 0.148817, -0.0205381)
