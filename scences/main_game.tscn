@@ -1,33 +1,24 @@
-[gd_scene load_steps=45 format=3 uid="uid://borgpsutpb2am"]
+[gd_scene load_steps=41 format=3 uid="uid://borgpsutpb2am"]
 
-[ext_resource type="ArrayMesh" uid="uid://caxto3q38dyro" path="res://assets/ducknest.obj" id="1_gfdoq"]
 [ext_resource type="ArrayMesh" uid="uid://sleq3n1eivoy" path="res://assets/mirror.obj" id="1_r5rxc"]
 [ext_resource type="ArrayMesh" uid="uid://o0eiclwqtgyt" path="res://assets/toilet.obj" id="2_ov3t6"]
 [ext_resource type="ArrayMesh" uid="uid://n74oqpphom83" path="res://assets/light.obj" id="3_3tokx"]
 [ext_resource type="ArrayMesh" uid="uid://cyuaqtcd67ct4" path="res://assets/sink.obj" id="4_f7yvc"]
 [ext_resource type="PackedScene" uid="uid://cssyaom8welbq" path="res://scences/player.tscn" id="5_niw2y"]
 [ext_resource type="ArrayMesh" uid="uid://cd1au4jdcsprv" path="res://assets/bars.obj" id="7_5rvca"]
-[ext_resource type="ArrayMesh" uid="uid://k7tnplittpq3" path="res://assets/poster.obj" id="8_rauy0"]
 [ext_resource type="ArrayMesh" uid="uid://de5njd4s8nir4" path="res://assets/Wall_With_Hole.obj" id="10_3m8e7"]
-[ext_resource type="ArrayMesh" uid="uid://denaq4lcc0nbt" path="res://assets/Switch_Pivot.obj" id="10_161m4"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="11_ki1yx"]
-[ext_resource type="ArrayMesh" uid="uid://hirvwvxxegj4" path="res://assets/Switch_Pole.obj" id="12_7ggw4"]
+[ext_resource type="PackedScene" uid="uid://prhgll40jr60" path="res://scences/Poster.tscn" id="12_wd8b3"]
+[ext_resource type="PackedScene" uid="uid://cm1j5f3pimble" path="res://scences/duck_nest.tscn" id="13_cwsis"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="13_i1eep"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="14_hx8oi"]
-[ext_resource type="PackedScene" uid="uid://bispdoj7gcnam" path="res://scences/pickable_box.tscn" id="15_x47is"]
+[ext_resource type="PackedScene" uid="uid://cfj60w0fsxt0v" path="res://scences/switch.tscn" id="14_irh77"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_si20a"]
 size = Vector3(3.2, 0.1, 3)
 
 [sub_resource type="BoxMesh" id="BoxMesh_c3ssn"]
 size = Vector3(3.2, 0.1, 3)
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_2iey1"]
-height = 1.07326
-radius = 2.37402
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hntra"]
-albedo_color = Color(0.611765, 0.427451, 0.298039, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b8ppe"]
 size = Vector3(2.01514, 2.45972, 3.33881)
@@ -37,6 +28,12 @@ albedo_color = Color(0.882353, 0.94902, 0.913725, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpts3"]
 albedo_color = Color(0.321569, 0.372549, 0.4, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c4wq5"]
+size = Vector3(5, 0.2, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g3kk3"]
+size = Vector3(5, 0.2, 6)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wfoyu"]
 top_radius = 0.02
@@ -103,13 +100,6 @@ size = Vector3(4.32104, 1.8432, 0.527588)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6jpl8"]
 size = Vector3(1.297, 2.30481, 0.129707)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_nf5ie"]
-size = Vector3(1, 0.470947, 0.397583)
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_emjux"]
-height = 0.155729
-radius = 0.0218274
-
 [node name="Game" type="Node3D"]
 
 [node name="Cell" type="Node3D" parent="."]
@@ -123,20 +113,32 @@ shape = SubResource("BoxShape3D_si20a")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cell/Floor/CollisionShape3D"]
 mesh = SubResource("BoxMesh_c3ssn")
 
-[node name="NestCollisionShape3D" type="CollisionShape3D" parent="Cell/Floor"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.888, 0.131, -0.888)
-shape = SubResource("CylinderShape3D_2iey1")
-
-[node name="Ducknest" type="MeshInstance3D" parent="Cell/Floor/NestCollisionShape3D"]
-mesh = ExtResource("1_gfdoq")
-skeleton = NodePath("../../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_hntra")
-
 [node name="ToiletCollisionShape3D" type="CollisionShape3D" parent="Cell/Floor"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.99884, 0.278909, -1.08454)
 shape = SubResource("BoxShape3D_b8ppe")
 
 [node name="Toilet" type="MeshInstance3D" parent="Cell/Floor/ToiletCollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00463867, 0.396362, 0.018158)
+mesh = ExtResource("2_ov3t6")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_di3un")
+surface_material_override/1 = SubResource("StandardMaterial3D_gpts3")
+
+[node name="Floor2" type="StaticBody3D" parent="Cell"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.9115, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cell/Floor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -1.38062)
+shape = SubResource("BoxShape3D_c4wq5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cell/Floor2/CollisionShape3D"]
+mesh = SubResource("BoxMesh_g3kk3")
+
+[node name="ToiletCollisionShape3D" type="CollisionShape3D" parent="Cell/Floor2"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.279, -2.55404)
+shape = SubResource("BoxShape3D_b8ppe")
+
+[node name="Toilet" type="MeshInstance3D" parent="Cell/Floor2/ToiletCollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00463867, 0.396362, 0.018158)
 mesh = ExtResource("2_ov3t6")
 skeleton = NodePath("../../../..")
@@ -302,51 +304,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_punj0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.950465, 1.0417, 1.44227)
 shape = SubResource("BoxShape3D_6jpl8")
 
-[node name="Poster" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 1.5, 1.35, 0)
-visible = false
-mesh = ExtResource("8_rauy0")
+[node name="Switch" parent="." instance=ExtResource("14_irh77")]
 
-[node name="Switch" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.6, 0.929, 0)
+[node name="Poster2" parent="." instance=ExtResource("12_wd8b3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, 1.35, 0.001)
 
-[node name="SwitchBottom" type="StaticBody3D" parent="Switch"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
-
-[node name="SwitchPivot" type="MeshInstance3D" parent="Switch/SwitchBottom"]
-mesh = ExtResource("10_161m4")
-skeleton = NodePath("../../..")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/SwitchBottom"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24521, -0.000915527)
-shape = SubResource("BoxShape3D_nf5ie")
-
-[node name="HingeJoint3D" type="HingeJoint3D" parent="Switch"]
-transform = Transform3D(-1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, 0, 0, 0, 0.25, 0.000710398, 0.0446883, -0.00110972)
-node_a = NodePath("../SwitchBottom")
-node_b = NodePath("../PickableObject")
-angular_limit/enable = true
-angular_limit/upper = 0.0
-angular_limit/lower = -3.14159
-
-[node name="PickableObject" type="RigidBody3D" parent="Switch"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00159144, 0, -3.19481e-05)
-script = ExtResource("11_ki1yx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/PickableObject"]
-transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0.140082, 0.137563, 0)
-shape = SubResource("CylinderShape3D_emjux")
-
-[node name="SwitchPole2" type="MeshInstance3D" parent="Switch/PickableObject"]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, -8.88178e-16, 0, 0.25, 0.0212514, -0.0212514, 0)
-mesh = ExtResource("12_7ggw4")
-skeleton = NodePath("../../..")
-
-[node name="GrabPointHandLeft" parent="Switch/PickableObject" instance=ExtResource("13_i1eep")]
-transform = Transform3D(-0.707107, 0.707107, -8.74228e-08, 0.707107, 0.707107, 0, 6.18172e-08, -6.18172e-08, -1, 0.13295, 0.2, 0)
-
-[node name="GrabPointHandRight" parent="Switch/PickableObject" instance=ExtResource("14_hx8oi")]
-transform = Transform3D(-0.707107, 0.707107, 8.74228e-08, 0.707107, 0.707107, 0, -6.18172e-08, 6.18172e-08, -1, 0.184612, 0.148817, -0.0205381)
-
-[node name="PickableObject" parent="." instance=ExtResource("15_x47is")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.599968, 0.929, -0.00159144)
+[node name="DuckNest" parent="." instance=ExtResource("13_cwsis")]
