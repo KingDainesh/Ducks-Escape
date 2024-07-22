@@ -27,6 +27,7 @@ collision_layer = 4
 collision_mask = 196615
 freeze_mode = 1
 script = ExtResource("1_tpm2g")
+metadata/Shape = "prism"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
