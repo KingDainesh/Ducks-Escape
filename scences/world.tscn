@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bchmcf5coy0vf"]
+[gd_scene load_steps=17 format=3 uid="uid://bchmcf5coy0vf"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_qdxbe"]
 [ext_resource type="PackedScene" uid="uid://cssyaom8welbq" path="res://scences/player.tscn" id="1_rb7uy"]
@@ -38,21 +38,6 @@ bottom_radius = 0.1
 height = 0.1
 radial_segments = 360
 rings = 1
-
-[sub_resource type="BoxMesh" id="BoxMesh_xbmsh"]
-size = Vector3(0.7, 0.1, 0.7)
-
-[sub_resource type="BoxMesh" id="BoxMesh_rr32y"]
-size = Vector3(0.7, 0.5, 0.1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_7r36a"]
-size = Vector3(0.5, 0.5, 0.1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_qos1g"]
-size = Vector3(0.1, 0.5, 0.6)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_oju3r"]
-size = Vector3(0.1, 0.7, 0.7)
 
 [node name="world" type="Node3D"]
 script = ExtResource("1_qdxbe")
@@ -121,47 +106,6 @@ screen_size = Vector2(640, 360)
 scene = ExtResource("7_gke6h")
 viewport_size = Vector2(640, 360)
 transparent = 0
-
-[node name="Box" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 0.35, 0)
-
-[node name="Top" type="MeshInstance3D" parent="Box"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
-mesh = SubResource("BoxMesh_xbmsh")
-
-[node name="Back" type="MeshInstance3D" parent="Box"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3)
-mesh = SubResource("BoxMesh_rr32y")
-
-[node name="Front" type="MeshInstance3D" parent="Box"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
-mesh = SubResource("BoxMesh_7r36a")
-
-[node name="Left" type="MeshInstance3D" parent="Box"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0, 0.05)
-mesh = SubResource("BoxMesh_qos1g")
-
-[node name="Left" type="CollisionShape3D" parent="Box/Left"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0500001)
-shape = SubResource("BoxShape3D_oju3r")
-
-[node name="Right" type="MeshInstance3D" parent="Box"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0.05)
-mesh = SubResource("BoxMesh_qos1g")
-
-[node name="Right" type="CollisionShape3D" parent="Box/Right"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.05)
-shape = SubResource("BoxShape3D_oju3r")
-
-[node name="Bottom" type="MeshInstance3D" parent="Box"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
-mesh = SubResource("BoxMesh_xbmsh")
-
-[node name="Viewport2Din3D" parent="Box" instance=ExtResource("6_kqlw4")]
-transform = Transform3D(1, 4.37114e-08, 4.37114e-08, -4.37114e-08, -4.37114e-08, 1, 4.37114e-08, -1, -4.37114e-08, 0, 0.36, 0)
-screen_size = Vector2(0.4, 0.4)
-scene = ExtResource("7_gke6h")
-viewport_size = Vector2(640, 360)
 
 [connection signal="body_entered" from="Table/Prism" to="Table" method="_on_prism_body_entered"]
 [connection signal="body_exited" from="Table/Prism" to="Table" method="_on_prism_body_exited"]

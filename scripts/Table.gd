@@ -7,7 +7,9 @@ var Box = false
 func body_processing(entered, area, body):
 	print(area)
 	print(body)
-	print(body.get_meta("Shape"))
+	print(body.name)
+	print(body.get_child(0))
+	print(body.get_child(0).get_meta("Shape"))
 	if body.has_meta("Shape"):
 		var shape = body.get_meta("Shape")
 		if shape == "capsule" and entered == true: Capsule = true
