@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://borgpsutpb2am"]
+[gd_scene load_steps=42 format=3 uid="uid://borgpsutpb2am"]
 
 [ext_resource type="ArrayMesh" uid="uid://sleq3n1eivoy" path="res://assets/mirror.obj" id="1_r5rxc"]
 [ext_resource type="ArrayMesh" uid="uid://o0eiclwqtgyt" path="res://assets/toilet.obj" id="2_ov3t6"]
@@ -9,10 +9,11 @@
 [ext_resource type="ArrayMesh" uid="uid://de5njd4s8nir4" path="res://assets/Wall_With_Hole.obj" id="10_3m8e7"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="11_ki1yx"]
 [ext_resource type="PackedScene" uid="uid://26hbsqkv4b63" path="res://scences/Poster.tscn" id="12_wd8b3"]
-[ext_resource type="PackedScene" path="res://scences/duck_nest.tscn" id="13_cwsis"]
+[ext_resource type="PackedScene" uid="uid://cm1j5f3pimble" path="res://scences/duck_nest.tscn" id="13_cwsis"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="13_i1eep"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="14_hx8oi"]
-[ext_resource type="PackedScene" path="res://scences/switch.tscn" id="14_irh77"]
+[ext_resource type="PackedScene" uid="uid://cfj60w0fsxt0v" path="res://scences/switch.tscn" id="14_irh77"]
+[ext_resource type="ArrayMesh" uid="uid://dptbbg40vdxod" path="res://assets/Winning text.obj" id="14_lphep"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_si20a"]
 size = Vector3(3.2, 0.1, 3)
@@ -30,10 +31,10 @@ albedo_color = Color(0.882353, 0.94902, 0.913725, 1)
 albedo_color = Color(0.321569, 0.372549, 0.4, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c4wq5"]
-size = Vector3(5, 0.2, 6)
+size = Vector3(15, 0.2, 16)
 
 [sub_resource type="BoxMesh" id="BoxMesh_g3kk3"]
-size = Vector3(5, 0.2, 6)
+size = Vector3(15, 0.2, 16)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wfoyu"]
 top_radius = 0.02
@@ -139,6 +140,17 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.279, -2.55404)
 shape = SubResource("BoxShape3D_b8ppe")
 
 [node name="Toilet" type="MeshInstance3D" parent="Cell/Floor2/ToiletCollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00463867, 0.396362, 0.018158)
+mesh = ExtResource("2_ov3t6")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_di3un")
+surface_material_override/1 = SubResource("StandardMaterial3D_gpts3")
+
+[node name="ToiletCollisionShape3D2" type="CollisionShape3D" parent="Cell/Floor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17662, -7.44995)
+shape = SubResource("BoxShape3D_b8ppe")
+
+[node name="Toilet" type="MeshInstance3D" parent="Cell/Floor2/ToiletCollisionShape3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00463867, 0.396362, 0.018158)
 mesh = ExtResource("2_ov3t6")
 skeleton = NodePath("../../../..")
@@ -310,3 +322,7 @@ shape = SubResource("BoxShape3D_6jpl8")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 1.35, 0.001)
 
 [node name="DuckNest" parent="." instance=ExtResource("13_cwsis")]
+
+[node name="WinningText" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 3.39811, -2.11762, 3.12147)
+mesh = ExtResource("14_lphep")
