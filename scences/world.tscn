@@ -163,9 +163,9 @@ screen_size = Vector2(0.4, 0.4)
 scene = ExtResource("7_gke6h")
 viewport_size = Vector2(640, 360)
 
-[connection signal="body_shape_entered" from="Table/Prism" to="Table" method="_on_prism_body_shape_entered"]
-[connection signal="body_shape_exited" from="Table/Prism" to="Table" method="_on_prism_body_shape_exited"]
-[connection signal="body_shape_entered" from="Table/Capsule" to="Table" method="_on_capsule_body_shape_entered"]
-[connection signal="body_shape_exited" from="Table/Capsule" to="Table" method="_on_capsule_body_shape_exited"]
-[connection signal="body_shape_entered" from="Table/Cube" to="Table" method="_on_cube_body_shape_entered"]
-[connection signal="body_shape_exited" from="Table/Cube" to="Table" method="_on_cube_body_shape_exited"]
+[connection signal="body_entered" from="Table/Prism" to="Table" method="_on_prism_body_entered"]
+[connection signal="body_exited" from="Table/Prism" to="Table" method="_on_prism_body_exited"]
+[connection signal="body_entered" from="Table/Capsule" to="Table" method="_on_capsule_body_entered"]
+[connection signal="body_exited" from="Table/Capsule" to="Table" method="_on_capsule_body_exited"]
+[connection signal="body_entered" from="Table/Cube" to="Table" method="_on_cube_body_entered"]
+[connection signal="body_exited" from="Table/Cube" to="Table" method="_on_cube_body_exited"]

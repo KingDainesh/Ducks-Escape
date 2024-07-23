@@ -37,6 +37,7 @@ metadata/shape = "prism"
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("PrismMesh_i421i")
+metadata/Shape = "prism"
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("2_uxci1")]
 transform = Transform3D(0.906029, 0.380618, 0.185042, -0.372921, 0.924732, -0.0761629, -0.200103, 0, 0.979775, -0.0106987, 0.0386825, -0.0582978)
