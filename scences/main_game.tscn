@@ -1,6 +1,7 @@
-[gd_scene load_steps=41 format=3 uid="uid://borgpsutpb2am"]
+[gd_scene load_steps=44 format=3 uid="uid://borgpsutpb2am"]
 
 [ext_resource type="ArrayMesh" uid="uid://sleq3n1eivoy" path="res://assets/mirror.obj" id="1_r5rxc"]
+[ext_resource type="ArrayMesh" uid="uid://s2y1m2wyoos0" path="res://assets/untitled.obj" id="2_e4jnp"]
 [ext_resource type="ArrayMesh" uid="uid://o0eiclwqtgyt" path="res://assets/toilet.obj" id="2_ov3t6"]
 [ext_resource type="ArrayMesh" uid="uid://n74oqpphom83" path="res://assets/light.obj" id="3_3tokx"]
 [ext_resource type="ArrayMesh" uid="uid://cyuaqtcd67ct4" path="res://assets/sink.obj" id="4_f7yvc"]
@@ -13,12 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="13_i1eep"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="14_hx8oi"]
 [ext_resource type="PackedScene" uid="uid://cfj60w0fsxt0v" path="res://scences/switch.tscn" id="14_irh77"]
+[ext_resource type="ArrayMesh" uid="uid://dptbbg40vdxod" path="res://assets/Winning text.obj" id="14_lphep"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_si20a"]
-size = Vector3(3.2, 0.1, 3)
-
-[sub_resource type="BoxMesh" id="BoxMesh_c3ssn"]
-size = Vector3(3.2, 0.1, 3)
+size = Vector3(2.05654, 0.1, 3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b8ppe"]
 size = Vector3(2.01514, 2.45972, 3.33881)
@@ -29,11 +28,17 @@ albedo_color = Color(0.882353, 0.94902, 0.913725, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gpts3"]
 albedo_color = Color(0.321569, 0.372549, 0.4, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_y23dq"]
+size = Vector3(1.20627, 0.101929, 2.06042)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_c4wq5"]
-size = Vector3(5, 0.2, 6)
+size = Vector3(15, 0.2, 16)
 
 [sub_resource type="BoxMesh" id="BoxMesh_g3kk3"]
-size = Vector3(5, 0.2, 6)
+size = Vector3(15, 0.2, 16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c3ssn"]
+size = Vector3(3.2, 0.1, 3)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_wfoyu"]
 top_radius = 0.02
@@ -107,11 +112,8 @@ size = Vector3(1.297, 2.30481, 0.129707)
 [node name="Floor" type="StaticBody3D" parent="Cell"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cell/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0118449, -0.05, -0.010572)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.583573, -0.05, -0.010572)
 shape = SubResource("BoxShape3D_si20a")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Cell/Floor/CollisionShape3D"]
-mesh = SubResource("BoxMesh_c3ssn")
 
 [node name="ToiletCollisionShape3D" type="CollisionShape3D" parent="Cell/Floor"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.99884, 0.278909, -1.08454)
@@ -123,6 +125,15 @@ mesh = ExtResource("2_ov3t6")
 skeleton = NodePath("../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_di3un")
 surface_material_override/1 = SubResource("StandardMaterial3D_gpts3")
+
+[node name="Untitled" type="MeshInstance3D" parent="Cell/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0472555, -0.11127, 0.0754512)
+mesh = ExtResource("2_e4jnp")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Cell/Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.05104, -0.0621948, 0.699625)
+shape = SubResource("BoxShape3D_y23dq")
 
 [node name="Floor2" type="StaticBody3D" parent="Cell"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.9115, 0)
@@ -139,6 +150,17 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.279, -2.55404)
 shape = SubResource("BoxShape3D_b8ppe")
 
 [node name="Toilet" type="MeshInstance3D" parent="Cell/Floor2/ToiletCollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00463867, 0.396362, 0.018158)
+mesh = ExtResource("2_ov3t6")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_di3un")
+surface_material_override/1 = SubResource("StandardMaterial3D_gpts3")
+
+[node name="ToiletCollisionShape3D2" type="CollisionShape3D" parent="Cell/Floor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17662, -7.44995)
+shape = SubResource("BoxShape3D_b8ppe")
+
+[node name="Toilet" type="MeshInstance3D" parent="Cell/Floor2/ToiletCollisionShape3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00463867, 0.396362, 0.018158)
 mesh = ExtResource("2_ov3t6")
 skeleton = NodePath("../../../..")
@@ -286,7 +308,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.43542, 0.786591, -0.0013427
 shape = SubResource("BoxShape3D_85xdm")
 
 [node name="Door" type="StaticBody3D" parent="."]
-visible = false
 
 [node name="Bars4" type="MeshInstance3D" parent="Door"]
 transform = Transform3D(0.3375, 0, 0, 0, 1.25, 0, 0, 0, 0.25, -0.640665, 0.0177696, 1.44302)
@@ -310,3 +331,8 @@ shape = SubResource("BoxShape3D_6jpl8")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 1.35, 0.001)
 
 [node name="DuckNest" parent="." instance=ExtResource("13_cwsis")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.310158, 0, 0.321054)
+
+[node name="WinningText" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 3.39811, -2.11762, 3.12147)
+mesh = ExtResource("14_lphep")
