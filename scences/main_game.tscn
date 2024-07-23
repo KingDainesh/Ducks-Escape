@@ -8,11 +8,11 @@
 [ext_resource type="ArrayMesh" uid="uid://cd1au4jdcsprv" path="res://assets/bars.obj" id="7_5rvca"]
 [ext_resource type="ArrayMesh" uid="uid://de5njd4s8nir4" path="res://assets/Wall_With_Hole.obj" id="10_3m8e7"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="11_ki1yx"]
-[ext_resource type="PackedScene" uid="uid://prhgll40jr60" path="res://scences/Poster.tscn" id="12_wd8b3"]
-[ext_resource type="PackedScene" uid="uid://cm1j5f3pimble" path="res://scences/duck_nest.tscn" id="13_cwsis"]
+[ext_resource type="PackedScene" uid="uid://26hbsqkv4b63" path="res://scences/Poster.tscn" id="12_wd8b3"]
+[ext_resource type="PackedScene" path="res://scences/duck_nest.tscn" id="13_cwsis"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="13_i1eep"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="14_hx8oi"]
-[ext_resource type="PackedScene" uid="uid://cfj60w0fsxt0v" path="res://scences/switch.tscn" id="14_irh77"]
+[ext_resource type="PackedScene" path="res://scences/switch.tscn" id="14_irh77"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_si20a"]
 size = Vector3(3.2, 0.1, 3)
@@ -107,7 +107,7 @@ size = Vector3(1.297, 2.30481, 0.129707)
 [node name="Floor" type="StaticBody3D" parent="Cell"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cell/Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0118449, -0.05, -0.010572)
 shape = SubResource("BoxShape3D_si20a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cell/Floor/CollisionShape3D"]
@@ -307,6 +307,6 @@ shape = SubResource("BoxShape3D_6jpl8")
 [node name="Switch" parent="." instance=ExtResource("14_irh77")]
 
 [node name="Poster2" parent="." instance=ExtResource("12_wd8b3")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.5, 1.35, 0.001)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 1.35, 0.001)
 
 [node name="DuckNest" parent="." instance=ExtResource("13_cwsis")]

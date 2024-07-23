@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://7ngql2hx56gx"]
+
+[ext_resource type="Texture2D" uid="uid://crq08i2nccb0j" path="res://textures/QUACK Poster.png" id="1_tv60t"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="QuackPoster" type="Sprite2D" parent="."]
+position = Vector2(249, 320)
+scale = Vector2(0.0598279, 0.0598279)
+texture = ExtResource("1_tv60t")
