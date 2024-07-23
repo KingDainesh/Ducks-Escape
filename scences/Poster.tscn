@@ -1,0 +1,41 @@
+[gd_scene load_steps=10 format=3 uid="uid://26hbsqkv4b63"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_am6gt"]
+[ext_resource type="ArrayMesh" uid="uid://k7tnplittpq3" path="res://assets/poster.obj" id="1_np3yq"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_x167d"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_lso5g"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="5_et4dq"]
+[ext_resource type="PackedScene" uid="uid://7ngql2hx56gx" path="res://scences/PosterPoster.tscn" id="6_oktry"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_84p57"]
+size = Vector3(0.599854, 0.828186, 0.0098114)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7tdqg"]
+albedo_color = Color(0.85098, 0.109804, 0.172549, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fmqhy"]
+albedo_color = Color(0.882353, 0.94902, 0.913725, 1)
+
+[node name="Poster" type="RigidBody3D"]
+script = ExtResource("1_am6gt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000854492, -0.00088501, 5.34058e-05)
+shape = SubResource("BoxShape3D_84p57")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = ExtResource("1_np3yq")
+surface_material_override/0 = SubResource("StandardMaterial3D_7tdqg")
+surface_material_override/1 = SubResource("StandardMaterial3D_fmqhy")
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("3_x167d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.249753, -0.000392258, 0.00219822)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_lso5g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("5_et4dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.162, -0.556, 0.007)
+scene = ExtResource("6_oktry")
+viewport_size = Vector2(2200, 1450)
