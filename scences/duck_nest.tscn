@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm1j5f3pimble"]
+[gd_scene load_steps=9 format=3 uid="uid://cm1j5f3pimble"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_gk8td"]
 [ext_resource type="ArrayMesh" uid="uid://caxto3q38dyro" path="res://assets/ducknest.obj" id="2_shn1p"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_17wqq"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_0ffsd"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_od4ny"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bfd7j"]
 height = 1.07326
@@ -10,15 +13,28 @@ radius = 2.37402
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ttswm"]
 albedo_color = Color(0.611765, 0.427451, 0.298039, 1)
 
+[sub_resource type="Resource" id="Resource_qo3fv"]
+script = ExtResource("5_od4ny")
+
 [node name="DuckNest" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
 script = ExtResource("1_gk8td")
 
 [node name="NestCollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.888, 0.131, -0.888)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 shape = SubResource("CylinderShape3D_bfd7j")
 
 [node name="Ducknest" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.888, 0.131, -0.888)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 mesh = ExtResource("2_shn1p")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_ttswm")
+
+[node name="GrabPointHandLeft" parent="." instance=ExtResource("3_17wqq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.1, 0)
+
+[node name="GrabPointHandRight" parent="." instance=ExtResource("4_0ffsd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0.1, 0)
+hand_pose = SubResource("Resource_qo3fv")

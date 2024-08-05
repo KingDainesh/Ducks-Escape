@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://borgpsutpb2am"]
+[gd_scene load_steps=45 format=3 uid="uid://borgpsutpb2am"]
 
 [ext_resource type="ArrayMesh" uid="uid://sleq3n1eivoy" path="res://assets/mirror.obj" id="1_r5rxc"]
 [ext_resource type="ArrayMesh" uid="uid://s2y1m2wyoos0" path="res://assets/untitled.obj" id="2_e4jnp"]
@@ -104,6 +104,9 @@ size = Vector3(4.32104, 1.8432, 0.527588)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6jpl8"]
 size = Vector3(1.297, 2.30481, 0.129707)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8r44"]
+albedo_color = Color(1, 0, 1, 1)
 
 [node name="Game" type="Node3D"]
 
@@ -326,13 +329,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.950465, 1.0417, 1.44227)
 shape = SubResource("BoxShape3D_6jpl8")
 
 [node name="Switch" parent="." instance=ExtResource("14_irh77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00247872, -0.00168395, -0.00233543)
 
-[node name="Poster2" parent="." instance=ExtResource("12_wd8b3")]
+[node name="Poster" parent="." instance=ExtResource("12_wd8b3")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 1.35, 0.001)
 
 [node name="DuckNest" parent="." instance=ExtResource("13_cwsis")]
-transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, -0.310158, 0, 0.321054)
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.76154, -2.6226e-06, -0.754607)
 
 [node name="WinningText" type="MeshInstance3D" parent="."]
-transform = Transform3D(-1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 3.39811, -2.11762, 3.12147)
+transform = Transform3D(-1, -1.50996e-08, 6.60024e-15, 0, -4.37114e-09, -1, 1.50996e-07, -0.1, 4.37114e-08, 3.39811, -2.11762, 3.12147)
 mesh = ExtResource("14_lphep")
+surface_material_override/0 = SubResource("StandardMaterial3D_q8r44")
