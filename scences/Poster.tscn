@@ -1,11 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://26hbsqkv4b63"]
+[gd_scene load_steps=17 format=3 uid="uid://26hbsqkv4b63"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_am6gt"]
 [ext_resource type="ArrayMesh" uid="uid://k7tnplittpq3" path="res://assets/poster.obj" id="1_np3yq"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_x167d"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_lso5g"]
+[ext_resource type="Animation" uid="uid://bediglpx0rj7i" path="res://addons/godot-xr-tools/hands/animations/left/Grip 5.res" id="4_mpqwc"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="5_et4dq"]
+[ext_resource type="Animation" uid="uid://dlxa6f6hwurka" path="res://addons/godot-xr-tools/hands/animations/left/Default pose.res" id="5_uu5xj"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="6_bqy2y"]
 [ext_resource type="PackedScene" uid="uid://7ngql2hx56gx" path="res://scences/PosterPoster.tscn" id="6_oktry"]
+[ext_resource type="Animation" uid="uid://s1vqcxyqcvea" path="res://addons/godot-xr-tools/hands/animations/right/Grip 5.res" id="8_syoou"]
+[ext_resource type="Animation" uid="uid://ky28birj4su6" path="res://addons/godot-xr-tools/hands/animations/right/Default pose.res" id="9_6yu1e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_84p57"]
 size = Vector3(0.599854, 0.828186, 0.0098114)
@@ -16,7 +21,20 @@ albedo_color = Color(0.85098, 0.109804, 0.172549, 1)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fmqhy"]
 albedo_color = Color(0.882353, 0.94902, 0.913725, 1)
 
+[sub_resource type="Resource" id="Resource_8oa7y"]
+script = ExtResource("6_bqy2y")
+open_pose = ExtResource("5_uu5xj")
+closed_pose = ExtResource("4_mpqwc")
+
+[sub_resource type="Resource" id="Resource_vndd5"]
+script = ExtResource("6_bqy2y")
+open_pose = ExtResource("9_6yu1e")
+closed_pose = ExtResource("8_syoou")
+
 [node name="Poster" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 196615
+freeze_mode = 1
 script = ExtResource("1_am6gt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -31,9 +49,11 @@ surface_material_override/1 = SubResource("StandardMaterial3D_fmqhy")
 
 [node name="GrabPointHandLeft" parent="." instance=ExtResource("3_x167d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.249753, -0.000392258, 0.00219822)
+hand_pose = SubResource("Resource_8oa7y")
 
 [node name="GrabPointHandRight" parent="." instance=ExtResource("4_lso5g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+hand_pose = SubResource("Resource_vndd5")
 
 [node name="Viewport2Din3D" parent="." instance=ExtResource("5_et4dq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.162, -0.556, 0.007)

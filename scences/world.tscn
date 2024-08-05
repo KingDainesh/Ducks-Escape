@@ -93,9 +93,11 @@ mesh = SubResource("CylinderMesh_jyogp")
 
 [node name="Cube" parent="." instance=ExtResource("3_ncv6c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62118, 1.19127, 0.1043)
+mass = 1000.0
 
 [node name="Capsule" parent="." instance=ExtResource("4_yqqeh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61261, 1.24185, -0.212581)
+mass = 0.01
 
 [node name="Prism" parent="." instance=ExtResource("5_bj3ml")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58054, 1.24748, 0.378675)
