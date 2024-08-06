@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://sptomstbxong"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_qv10h"]
+[ext_resource type="Shape3D" uid="uid://d0woblyxbn8he" path="res://collisions/duck_nest_collision.tres" id="2_n4b5i"]
+[ext_resource type="ArrayMesh" uid="uid://e88nfrsxqodw" path="res://mesh/duck_nest_mesh.tres" id="3_ajur0"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lhg1d"]
+albedo_color = Color(0.611765, 0.427451, 0.298039, 1)
+
+[node name="PickableNest" instance=ExtResource("1_qv10h")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+shape = ExtResource("2_n4b5i")
+
+[node name="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = ExtResource("3_ajur0")
+surface_material_override/0 = SubResource("StandardMaterial3D_lhg1d")
+
+[node name="GrabPointHandLeft" parent="." index="2"]
+transform = Transform3D(0.979775, 0, 0.200103, 0, 1, 0, -0.200103, 0, 0.979775, -0.628052, 0.100348, -0.0582978)
+
+[node name="GrabPointHandRight" parent="." index="3"]
+transform = Transform3D(0.980313, 0, -0.197452, 0, 1, 0, 0.197452, 0, 0.980313, 0.620889, 0.0952695, -0.0575863)
+visible = true
