@@ -1,3 +1,30 @@
-[gd_scene format=3 uid="uid://crk88m8f4sjt4"]
+[gd_scene load_steps=4 format=3 uid="uid://crk88m8f4sjt4"]
 
-[node name="test" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://26hbsqkv4b63" path="res://scences/Poster.tscn" id="1_o3l80"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_svchn"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rq8p3"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Poster" parent="." instance=ExtResource("1_o3l80")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198907, 0.536955, 0.00185042)
+freeze = true
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.397569, 1.57403, 0)
+mass = 0.01
+gravity_scale = 0.09
+linear_velocity = Vector3(0, -0.1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_svchn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("BoxMesh_rq8p3")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.182888, 0, 0.983134, 0, 1, 0, -0.983134, 0, 0.182888, 2.41584, 0.577298, 0.443807)

@@ -1,6 +1,14 @@
 extends RigidBody3D
 
 
+func _ready():
+	print("Started")
+
+
+func _physics_process(delta):
+	pass
+
+
 func _on_body_entered(body):
 	print("Poster collided with ", body)
 
