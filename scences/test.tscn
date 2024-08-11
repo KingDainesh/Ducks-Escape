@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://crk88m8f4sjt4"]
+[gd_scene load_steps=8 format=3 uid="uid://crk88m8f4sjt4"]
 
 [ext_resource type="PackedScene" uid="uid://26hbsqkv4b63" path="res://scences/Poster.tscn" id="1_o3l80"]
+[ext_resource type="PackedScene" uid="uid://bpdj5njb8nhot" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_fullglove_hand.tscn" id="2_fx4sk"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_tneus"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_upjp0"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="5_0irnq"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_svchn"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_wxhv5"]
 size = Vector3(0.1, 0.1, 0.1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_rq8p3"]
+[sub_resource type="BoxMesh" id="BoxMesh_ktkx8"]
 size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Node3D" type="Node3D"]
@@ -14,17 +18,31 @@ size = Vector3(0.1, 0.1, 0.1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198907, 0.536955, 0.00185042)
 freeze = true
 
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.397569, 1.57403, 0)
-mass = 0.01
-gravity_scale = 0.09
-linear_velocity = Vector3(0, -0.1, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-shape = SubResource("BoxShape3D_svchn")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-mesh = SubResource("BoxMesh_rq8p3")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.182888, 0, 0.983134, 0, 1, 0, -0.983134, 0, 0.182888, 2.41584, 0.577298, 0.443807)
+
+[node name="LeftHand" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.366812, 1.93593, -0.00716929)
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="LeftHand" parent="LeftHand" instance=ExtResource("2_fx4sk")]
+
+[node name="MovementDirect" parent="LeftHand" instance=ExtResource("3_tneus")]
+strafe = true
+
+[node name="FunctionPickup" parent="LeftHand" instance=ExtResource("4_upjp0")]
+
+[node name="FunctionPointer" parent="LeftHand" instance=ExtResource("5_0irnq")]
+show_laser = 2
+laser_length = 1
+show_target = true
+
+[node name="RigidBody3D" type="RigidBody3D" parent="LeftHand"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftHand/RigidBody3D"]
+shape = SubResource("BoxShape3D_wxhv5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LeftHand/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00176239, -0.00286102, -0.00299335)
+mesh = SubResource("BoxMesh_ktkx8")

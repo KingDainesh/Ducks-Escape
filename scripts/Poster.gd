@@ -1,17 +1,6 @@
 extends RigidBody3D
 
 
-func _ready():
-	print("Started")
-
-
-func _physics_process(delta):
-	pass
-
-
-func _on_body_entered(body):
-	print("Poster collided with ", body)
-
-
-func _on_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	print("Poster collided with shape ", body)
+func _on_area_3d_body_entered(body):
+	if "LeftHand" in str(body.find_parent("LeftHand")) or "LeftHand" in str(body.find_parent("LeftHand")):
+		self.freeze = false
