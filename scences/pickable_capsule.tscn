@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_xeo48"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_hren4"]
-[ext_resource type="Resource" uid="uid://cy5lxd0lbwv2l" path="res://addons/godot-xr-tools/objects/grab_points/grip5left.tres" id="3_y41u5"]
+[ext_resource type="Resource" path="res://addons/godot-xr-tools/objects/grab_points/grip5left.tres" id="3_y41u5"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_j6yq1"]
-[ext_resource type="Resource" uid="uid://crjnyq8wii5c7" path="res://addons/godot-xr-tools/objects/grab_points/grip5right.tres" id="5_mx4i6"]
+[ext_resource type="Resource" path="res://addons/godot-xr-tools/objects/grab_points/grip5right.tres" id="5_mx4i6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gyore"]
 
