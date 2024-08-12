@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cssyaom8welbq"]
+[gd_scene load_steps=10 format=3 uid="uid://cssyaom8welbq"]
 
 [ext_resource type="PackedScene" uid="uid://bpdj5njb8nhot" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_fullglove_hand.tscn" id="2_g741i"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="2_sxgqj"]
@@ -7,6 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://d1tl07geqm5xq" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_fullglove_hand.tscn" id="4_tdcrd"]
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="5_1jy0a"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="6_8xh8v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ndkhk"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_b3yni"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="player" type="XROrigin3D"]
 
@@ -36,6 +42,16 @@ show_laser = 2
 laser_length = 1
 show_target = true
 
+[node name="RigidBody3D" type="RigidBody3D" parent="LeftHand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.045, 0.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftHand/RigidBody3D"]
+shape = SubResource("BoxShape3D_ndkhk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LeftHand/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00176239, -0.00286102, -0.00299335)
+mesh = SubResource("BoxMesh_b3yni")
+
 [node name="RightHand" type="XRController3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01026, 0, -1.00691)
 tracker = &"right_hand"
@@ -52,3 +68,13 @@ turn_mode = 2
 show_laser = 2
 laser_length = 1
 show_target = true
+
+[node name="RigidBody3D" type="RigidBody3D" parent="RightHand"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.045, 0.1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightHand/RigidBody3D"]
+shape = SubResource("BoxShape3D_ndkhk")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RightHand/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00176239, -0.00286102, -0.00299335)
+mesh = SubResource("BoxMesh_b3yni")

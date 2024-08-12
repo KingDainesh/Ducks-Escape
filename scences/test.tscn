@@ -16,7 +16,6 @@ size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Poster" parent="." instance=ExtResource("1_o3l80")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198907, 0.536955, 0.00185042)
-freeze = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.182888, 0, 0.983134, 0, 1, 0, -0.983134, 0, 0.182888, 2.41584, 0.577298, 0.443807)
