@@ -108,7 +108,7 @@ size = Vector3(1.297, 2.30481, 0.129707)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sok5s"]
 radius = 0.0315574
-height = 0.2
+height = 0.187732
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q8r44"]
 albedo_color = Color(1, 0, 1, 1)
@@ -340,7 +340,7 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.6023
 script = ExtResource("13_qlcrp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0694615, 0.160686, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0694615, 0.161292, 0)
 shape = SubResource("CapsuleShape3D_sok5s")
 
 [node name="Poster" parent="." instance=ExtResource("12_wd8b3")]
