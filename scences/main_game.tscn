@@ -145,7 +145,6 @@ shape = SubResource("BoxShape3D_y23dq")
 
 [node name="Floor2" type="StaticBody3D" parent="Cell"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.9115, 0)
-visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cell/Floor2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -1.38062)
