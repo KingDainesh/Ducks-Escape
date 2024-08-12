@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://26hbsqkv4b63"]
+[gd_scene load_steps=17 format=3 uid="uid://26hbsqkv4b63"]
 
-[ext_resource type="Script" path="res://Poster.gd" id="1_3reyr"]
+[ext_resource type="Script" path="res://scripts/Poster.gd" id="1_3reyr"]
 [ext_resource type="ArrayMesh" uid="uid://k7tnplittpq3" path="res://assets/poster.obj" id="1_np3yq"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_x167d"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_lso5g"]
@@ -11,10 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://7ngql2hx56gx" path="res://scences/PosterPoster.tscn" id="6_oktry"]
 [ext_resource type="Animation" uid="uid://s1vqcxyqcvea" path="res://addons/godot-xr-tools/hands/animations/right/Grip 5.res" id="8_syoou"]
 [ext_resource type="Animation" uid="uid://ky28birj4su6" path="res://addons/godot-xr-tools/hands/animations/right/Default pose.res" id="9_6yu1e"]
-[ext_resource type="PackedScene" uid="uid://bpdj5njb8nhot" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_fullglove_hand.tscn" id="12_tc8ac"]
-[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="13_saur2"]
-[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="14_ahxll"]
-[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="15_ut7sp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_84p57"]
 size = Vector3(0.599854, 0.828186, 0.0098114)
@@ -65,25 +61,10 @@ screen_size = Vector2(0.6, 0.828)
 scene = ExtResource("6_oktry")
 viewport_size = Vector2(7087, 9780)
 
-[node name="LeftHand" type="XRController3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0676771, 0.0360332, -0.01177)
-tracker = &"left_hand"
-pose = &"aim"
+[node name="Area3D" type="Area3D" parent="."]
 
-[node name="LeftHand" parent="LeftHand" instance=ExtResource("12_tc8ac")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000854492, -0.00088501, 5.34058e-05)
+shape = SubResource("BoxShape3D_84p57")
 
-[node name="MovementDirect" parent="LeftHand" instance=ExtResource("13_saur2")]
-strafe = true
-
-[node name="FunctionPickup" parent="LeftHand" instance=ExtResource("14_ahxll")]
-
-[node name="FunctionPointer" parent="LeftHand" instance=ExtResource("15_ut7sp")]
-show_laser = 2
-laser_length = 1
-show_target = true
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.91544)
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
