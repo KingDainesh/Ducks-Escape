@@ -60,6 +60,7 @@ hand_pose = SubResource("Resource_vndd5")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.006)
 screen_size = Vector2(0.6, 0.828)
 scene = ExtResource("6_oktry")
+viewport_size = Vector2(7087, 9780)
 update_mode = 0
 throttle_fps = 1.0
 input_keyboard = false
