@@ -65,7 +65,7 @@ script = ExtResource("3_6flq5")
 shape = SubResource("BoxShape3D_yto5o")
 
 [node name="Prism" type="Area3D" parent="Table"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.563738, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Table/Prism"]
 shape = SubResource("CylinderShape3D_oss36")
@@ -74,7 +74,7 @@ shape = SubResource("CylinderShape3D_oss36")
 mesh = SubResource("CylinderMesh_jyogp")
 
 [node name="Capsule" type="Area3D" parent="Table"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.300116)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.563738, 0.300116)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Table/Capsule"]
 shape = SubResource("CylinderShape3D_oss36")
@@ -83,7 +83,7 @@ shape = SubResource("CylinderShape3D_oss36")
 mesh = SubResource("CylinderMesh_jyogp")
 
 [node name="Cube" type="Area3D" parent="Table"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.563738, -0.3)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Table/Cube"]
 shape = SubResource("CylinderShape3D_oss36")
@@ -91,16 +91,16 @@ shape = SubResource("CylinderShape3D_oss36")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Table/Cube"]
 mesh = SubResource("CylinderMesh_jyogp")
 
-[node name="Cube" parent="." instance=ExtResource("3_ncv6c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62118, 1.19127, 0.1043)
-mass = 1000.0
+[node name="Prism" parent="." instance=ExtResource("5_bj3ml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58054, 1.24748, 0.077109)
 
 [node name="Capsule" parent="." instance=ExtResource("4_yqqeh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61261, 1.24185, -0.212581)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.61261, 1.28533, 0.361466)
 mass = 0.01
 
-[node name="Prism" parent="." instance=ExtResource("5_bj3ml")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.58054, 1.24748, 0.378675)
+[node name="Cube" parent="." instance=ExtResource("3_ncv6c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62118, 1.22251, -0.217383)
+mass = 1000.0
 
 [node name="Viewport2Din3D" parent="." instance=ExtResource("6_kqlw4")]
 transform = Transform3D(0.003, 0, 0, 0, 0.003, 0, 0, 0, 0.003, 0, 1.28791, -2)
@@ -109,9 +109,9 @@ scene = ExtResource("7_gke6h")
 viewport_size = Vector2(640, 360)
 transparent = 0
 
-[connection signal="body_entered" from="Table/Prism" to="Table" method="_on_prism_body_entered"]
-[connection signal="body_exited" from="Table/Prism" to="Table" method="_on_prism_body_exited"]
-[connection signal="body_entered" from="Table/Capsule" to="Table" method="_on_capsule_body_entered"]
-[connection signal="body_exited" from="Table/Capsule" to="Table" method="_on_capsule_body_exited"]
-[connection signal="body_entered" from="Table/Cube" to="Table" method="_on_cube_body_entered"]
-[connection signal="body_exited" from="Table/Cube" to="Table" method="_on_cube_body_exited"]
+[connection signal="area_shape_entered" from="Table/Prism" to="Table" method="_on_prism_area_shape_entered"]
+[connection signal="area_shape_exited" from="Table/Prism" to="Table" method="_on_prism_area_shape_exited"]
+[connection signal="area_shape_entered" from="Table/Capsule" to="Table" method="_on_capsule_area_shape_entered"]
+[connection signal="area_shape_exited" from="Table/Capsule" to="Table" method="_on_capsule_area_shape_exited"]
+[connection signal="area_shape_entered" from="Table/Cube" to="Table" method="_on_cube_area_shape_entered"]
+[connection signal="area_shape_exited" from="Table/Cube" to="Table" method="_on_cube_area_shape_exited"]

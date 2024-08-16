@@ -37,3 +37,10 @@ hand_pose = ExtResource("3_y41u5")
 [node name="GrabPointHandRight" parent="." instance=ExtResource("5_j6yq1")]
 transform = Transform3D(0.980313, 0, -0.197452, 0, 1, 0, 0.197452, 0, 0.980313, 0.0387309, 0.0811173, -0.0575863)
 hand_pose = ExtResource("5_mx4i6")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_gyore")
+metadata/shape = "capsule"
