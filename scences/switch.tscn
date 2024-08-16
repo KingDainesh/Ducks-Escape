@@ -26,15 +26,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24521, -0.000915527)
 shape = SubResource("BoxShape3D_wapjc")
 
 [node name="HingeJoint3D" type="HingeJoint3D" parent="."]
-transform = Transform3D(0.176777, 0.176777, 0, -0.176777, 0.176777, 0, 0, 0, 0.25, 0, 0.0582036, 0)
+transform = Transform3D(-1.09278e-08, 0.25, 0, -0.25, -1.09278e-08, 0, 0, 0, 0.25, 0, 0, 0)
 node_a = NodePath("../SwitchBottom")
 node_b = NodePath("../PickableSwitchPole")
 angular_limit/enable = true
 angular_limit/upper = 0.0
+angular_limit/lower = -3.14159
 
 [node name="PickableSwitchPole" parent="." instance=ExtResource("2_bibm6")]
-axis_lock_linear_x = true
-axis_lock_linear_y = true
-axis_lock_linear_z = true
-axis_lock_angular_x = true
-axis_lock_angular_z = true

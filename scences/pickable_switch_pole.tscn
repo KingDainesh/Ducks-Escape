@@ -24,7 +24,7 @@ closed_pose = ExtResource("6_viwxp")
 [node name="PickableSwitchPole" instance=ExtResource("1_4fl8t")]
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0.0918489, 0.133098, 0)
+transform = Transform3D(0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 0, 1, 0.125168, 0.168832, 0)
 shape = ExtResource("2_6bdo3")
 
 [node name="MeshInstance3D" parent="." index="1"]

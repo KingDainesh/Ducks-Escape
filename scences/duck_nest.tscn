@@ -16,7 +16,6 @@ script = ExtResource("5_od4ny")
 [node name="DuckNest" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 196615
-mass = 1000.0
 freeze_mode = 1
 script = ExtResource("1_gk8td")
 
