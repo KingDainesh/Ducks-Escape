@@ -101,7 +101,7 @@ transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.99884, 0.278909, 
 shape = SubResource("BoxShape3D_o0375")
 
 [node name="Toilet" type="MeshInstance3D" parent="Cell/Floor/ToiletCollisionShape3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00463867, 0.396362, 0.018158)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00315046, 0.396362, 0.0140829)
 mesh = ExtResource("1_06oqb")
 skeleton = NodePath("../../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3u2eo")
