@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bchmcf5coy0vf"]
+[gd_scene load_steps=18 format=3 uid="uid://bchmcf5coy0vf"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_qdxbe"]
 [ext_resource type="PackedScene" uid="uid://cssyaom8welbq" path="res://scences/player.tscn" id="1_rb7uy"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://gmsqipyqc10s" path="res://scences/pickable_prism.tscn" id="5_bj3ml"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="6_kqlw4"]
 [ext_resource type="PackedScene" uid="uid://dhw6d8p6ipysn" path="res://scences/testui.tscn" id="7_gke6h"]
+[ext_resource type="PackedScene" uid="uid://cfj60w0fsxt0v" path="res://scences/switch.tscn" id="9_qn7u3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0hlh7"]
 size = Vector3(50, 0.1, 50)
@@ -43,7 +44,7 @@ rings = 1
 script = ExtResource("1_qdxbe")
 
 [node name="player" parent="." instance=ExtResource("1_rb7uy")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 0)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
@@ -108,6 +109,9 @@ screen_size = Vector2(640, 360)
 scene = ExtResource("7_gke6h")
 viewport_size = Vector2(640, 360)
 transparent = 0
+
+[node name="Switch" parent="." instance=ExtResource("9_qn7u3")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.84194, 0.274305, 0.253353)
 
 [connection signal="body_entered" from="Table/Prism" to="Table" method="_on_prism_body_entered"]
 [connection signal="body_exited" from="Table/Prism" to="Table" method="_on_prism_body_exited"]
