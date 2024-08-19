@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dtl2u06mor6j3"]
+[gd_scene load_steps=37 format=3 uid="uid://dtl2u06mor6j3"]
 
 [ext_resource type="ArrayMesh" uid="uid://o0eiclwqtgyt" path="res://assets/toilet.obj" id="1_p7det"]
 [ext_resource type="ArrayMesh" uid="uid://dptbbg40vdxod" path="res://assets/Winning text.obj" id="2_mntis"]
@@ -62,6 +62,9 @@ size = Vector3(10, 0.1, 5)
 size = Vector3(10, 0.1, 5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ai523"]
+size = Vector3(100, 0.1, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gdsfn"]
 size = Vector3(100, 0.1, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_668ar"]
@@ -238,12 +241,13 @@ mesh = SubResource("BoxMesh_ixc5k")
 shape = SubResource("BoxShape3D_2jwa2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.348, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.347656, 0)
 mesh = SubResource("BoxMesh_ai523")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("BoxShape3D_gdsfn")
 
 [node name="Walls" type="Node3D" parent="."]
 
