@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bchmcf5coy0vf"]
+[gd_scene load_steps=17 format=3 uid="uid://bchmcf5coy0vf"]
 
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_qdxbe"]
 [ext_resource type="PackedScene" uid="uid://cssyaom8welbq" path="res://scences/player.tscn" id="1_rb7uy"]
@@ -8,8 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://gmsqipyqc10s" path="res://scences/pickable_prism.tscn" id="5_bj3ml"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="6_kqlw4"]
 [ext_resource type="PackedScene" uid="uid://dhw6d8p6ipysn" path="res://scences/testui.tscn" id="7_gke6h"]
-[ext_resource type="PackedScene" uid="uid://cfj60w0fsxt0v" path="res://scences/switch.tscn" id="9_qn7u3"]
-[ext_resource type="PackedScene" uid="uid://cm1j5f3pimble" path="res://scences/duck_nest.tscn" id="10_wu3h5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0hlh7"]
 size = Vector3(50, 0.1, 50)
@@ -93,43 +91,6 @@ shape = SubResource("CylinderShape3D_oss36")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Table/Cube"]
 mesh = SubResource("CylinderMesh_jyogp")
 
-[node name="Table2" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 1, -1.4089, 0.516301, 0.0630305)
-mesh = SubResource("BoxMesh_8kdj5")
-script = ExtResource("3_6flq5")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Table2"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Table2/StaticBody3D"]
-shape = SubResource("BoxShape3D_yto5o")
-
-[node name="Prism" type="Area3D" parent="Table2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Table2/Prism"]
-shape = SubResource("CylinderShape3D_oss36")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Table2/Prism"]
-mesh = SubResource("CylinderMesh_jyogp")
-
-[node name="Capsule" type="Area3D" parent="Table2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.300116)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Table2/Capsule"]
-shape = SubResource("CylinderShape3D_oss36")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Table2/Capsule"]
-mesh = SubResource("CylinderMesh_jyogp")
-
-[node name="Cube" type="Area3D" parent="Table2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.3)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Table2/Cube"]
-shape = SubResource("CylinderShape3D_oss36")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Table2/Cube"]
-mesh = SubResource("CylinderMesh_jyogp")
-
 [node name="Cube" parent="." instance=ExtResource("3_ncv6c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62118, 1.19127, 0.1043)
 mass = 1000.0
@@ -148,21 +109,9 @@ scene = ExtResource("7_gke6h")
 viewport_size = Vector2(640, 360)
 transparent = 0
 
-[node name="Switch" parent="." instance=ExtResource("9_qn7u3")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 1, 1)
-
-[node name="DuckNest" parent="." instance=ExtResource("10_wu3h5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.2, 0)
-
 [connection signal="body_entered" from="Table/Prism" to="Table" method="_on_prism_body_entered"]
 [connection signal="body_exited" from="Table/Prism" to="Table" method="_on_prism_body_exited"]
 [connection signal="body_entered" from="Table/Capsule" to="Table" method="_on_capsule_body_entered"]
 [connection signal="body_exited" from="Table/Capsule" to="Table" method="_on_capsule_body_exited"]
 [connection signal="body_entered" from="Table/Cube" to="Table" method="_on_cube_body_entered"]
 [connection signal="body_exited" from="Table/Cube" to="Table" method="_on_cube_body_exited"]
-[connection signal="body_entered" from="Table2/Prism" to="Table2" method="_on_prism_body_entered"]
-[connection signal="body_exited" from="Table2/Prism" to="Table2" method="_on_prism_body_exited"]
-[connection signal="body_entered" from="Table2/Capsule" to="Table2" method="_on_capsule_body_entered"]
-[connection signal="body_exited" from="Table2/Capsule" to="Table2" method="_on_capsule_body_exited"]
-[connection signal="body_entered" from="Table2/Cube" to="Table2" method="_on_cube_body_entered"]
-[connection signal="body_exited" from="Table2/Cube" to="Table2" method="_on_cube_body_exited"]
