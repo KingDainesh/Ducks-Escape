@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfj60w0fsxt0v"]
+[gd_scene load_steps=7 format=3 uid="uid://cfj60w0fsxt0v"]
 
+[ext_resource type="Script" path="res://scences/switch.gd" id="1_7jcpg"]
 [ext_resource type="ArrayMesh" uid="uid://denaq4lcc0nbt" path="res://assets/Switch_Pivot.obj" id="1_or7go"]
 [ext_resource type="PackedScene" uid="uid://de4car44qrxhr" path="res://scences/pickable_switch_pole.tscn" id="2_bibm6"]
 
@@ -9,10 +10,15 @@ albedo_color = Color(0.2, 0.219608, 0.25098, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_wapjc"]
 size = Vector3(1, 0.470947, 0.397583)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_mqtcd"]
+size = Vector3(0.01, 0.01, 0.01)
+
 [node name="Switch" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0)
+script = ExtResource("1_7jcpg")
 
 [node name="SwitchBottom" type="StaticBody3D" parent="."]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+transform = Transform3D(0.25, 0, 0, 0, -0.25, -2.18557e-08, 0, 2.18557e-08, -0.25, 0, 0, 0)
 collision_layer = 4
 collision_mask = 196615
 
@@ -30,12 +36,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
 node_a = NodePath("../SwitchBottom")
 node_b = NodePath("../PickableSwitchPole")
 angular_limit/enable = true
-angular_limit/upper = 0.785398
-angular_limit/lower = -0.785398
+angular_limit/upper = 0.733038
+angular_limit/lower = -0.733038
 
 [node name="PickableSwitchPole" parent="." instance=ExtResource("2_bibm6")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
 axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_z = true
+
+[node name="Action" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Action"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.166933, -0.13882, -1.2136e-08)
+shape = SubResource("BoxShape3D_mqtcd")
+
+[connection signal="area_shape_entered" from="Action" to="." method="_on_action_area_shape_entered"]
+[connection signal="area_shape_exited" from="Action" to="." method="_on_action_area_shape_exited"]
