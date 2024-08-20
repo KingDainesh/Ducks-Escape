@@ -30,9 +30,16 @@ mesh = ExtResource("2_kk052")
 
 [node name="GrabPointHandLeft" parent="." index="2"]
 transform = Transform3D(0.979775, 0, 0.200103, 0, 1, 0, -0.200103, 0, 0.979775, -0.0181101, 0.0386825, 0.0289069)
+visible = true
 hand_pose = SubResource("Resource_y5t0r")
 
 [node name="GrabPointHandRight" parent="." index="3"]
 transform = Transform3D(0.980313, 0, -0.197452, 0, 1, 0, 0.197452, 0, 0.980313, 0.0244364, 0.0408589, 0.0298187)
 visible = true
 hand_pose = SubResource("Resource_aixju")
+
+[node name="Area3D" type="Area3D" parent="." index="4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+shape = SubResource("CylinderShape3D_lpvwe")
+metadata/Class = "AH"

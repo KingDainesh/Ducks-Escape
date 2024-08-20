@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://borgpsutpb2am"]
+[gd_scene load_steps=42 format=3 uid="uid://borgpsutpb2am"]
 
 [ext_resource type="ArrayMesh" uid="uid://o0eiclwqtgyt" path="res://assets/toilet.obj" id="1_hbsfg"]
 [ext_resource type="ArrayMesh" uid="uid://s2y1m2wyoos0" path="res://assets/untitled.obj" id="2_n75s5"]
@@ -9,7 +9,6 @@
 [ext_resource type="ArrayMesh" uid="uid://cyuaqtcd67ct4" path="res://assets/sink.obj" id="7_3xsde"]
 [ext_resource type="ArrayMesh" uid="uid://sleq3n1eivoy" path="res://assets/mirror.obj" id="8_77j8y"]
 [ext_resource type="ArrayMesh" uid="uid://de5njd4s8nir4" path="res://assets/Wall_With_Hole.obj" id="9_36gmx"]
-[ext_resource type="PackedScene" uid="uid://cssyaom8welbq" path="res://scences/player.tscn" id="10_gs4c8"]
 [ext_resource type="ArrayMesh" uid="uid://cd1au4jdcsprv" path="res://assets/bars.obj" id="11_plyvg"]
 [ext_resource type="PackedScene" uid="uid://cfj60w0fsxt0v" path="res://scences/switch.tscn" id="12_tjq5q"]
 [ext_resource type="Script" path="res://scripts/switch.gd" id="13_3a5ca"]
@@ -244,9 +243,6 @@ shape = SubResource("BoxShape3D_qpitl")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cell/Wall -Z/CollisionShape3D"]
 mesh = SubResource("BoxMesh_3oho3")
-
-[node name="XROrigin3D" parent="." instance=ExtResource("10_gs4c8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="Bars2" type="StaticBody3D" parent="."]
 transform = Transform3D(0.45, 0, 0, 0, 1.25, 0, 0, 0, 0.25, -0.0110567, 0.0601953, 1.44302)
