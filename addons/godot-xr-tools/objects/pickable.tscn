@@ -46,3 +46,10 @@ hand_pose = SubResource("Resource_qdrkh")
 [node name="GrabPointHandRight" parent="." instance=ExtResource("5_61o6f")]
 transform = Transform3D(0.980313, 0, -0.197452, 0, 1, 0, 0.197452, 0, 0.980313, 0.0509748, 0.0408589, -0.0575863)
 hand_pose = SubResource("Resource_h8pwl")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("BoxShape3D_dcsr8")
+metadata/Class = "AH"
