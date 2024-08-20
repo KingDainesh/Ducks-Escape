@@ -417,4 +417,22 @@ transform = Transform3D(-3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, -1.7, 
 [node name="Mug" type="Node3D" parent="Decorations/Library"]
 
 [node name="PickableMug" parent="Decorations/Library/Mug" instance=ExtResource("10_n3u5f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.361083, 0.869108, 13.4707)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08713, 0.869108, 13.4707)
+
+[node name="PickableMug3" parent="Decorations/Library/Mug" instance=ExtResource("10_n3u5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26205, 0.869108, 13.4707)
+
+[node name="PickableMug4" parent="Decorations/Library/Mug" instance=ExtResource("10_n3u5f")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.26205, 0.869108, 12.5708)
+
+[node name="PickableMug5" parent="Decorations/Library/Mug" instance=ExtResource("10_n3u5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.450267, 0.869108, 13.4707)
+
+[node name="PickableMug6" parent="Decorations/Library/Mug" instance=ExtResource("10_n3u5f")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.450267, 0.869108, 12.5708)
+
+[node name="PickableMug9" parent="Decorations/Library/Mug" instance=ExtResource("10_n3u5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.31113, 0.869108, 13.4707)
+
+[node name="PickableMug10" parent="Decorations/Library/Mug" instance=ExtResource("10_n3u5f")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.31113, 0.869108, 12.5708)
