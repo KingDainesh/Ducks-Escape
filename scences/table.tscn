@@ -8,7 +8,7 @@ size = Vector3(0.452271, 0.0588379, 0.921936)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ef70o"]
 size = Vector3(0.134251, 0.263947, 0.137772)
 
-[node name="Table?" type="Node3D"]
+[node name="Table" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0102396, 0, 0)

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cuwxj0gu6ew5p" path="res://scences/cell.tscn" id="4_11qas"]
 [ext_resource type="PackedScene" uid="uid://c4eilvlc2v6ys" path="res://scences/bookcase.tscn" id="5_lhy3m"]
 [ext_resource type="PackedScene" uid="uid://c5ijocje3eqqh" path="res://scences/wall_with_doorway_5m.tscn" id="5_naql3"]
-[ext_resource type="PackedScene" uid="uid://cicb8pa6myei4" path="res://scences/table?.tscn" id="6_8pc30"]
+[ext_resource type="PackedScene" uid="uid://cicb8pa6myei4" path="res://scences/table.tscn" id="6_8pc30"]
 [ext_resource type="PackedScene" uid="uid://pu3mtdq7cudh" path="res://scences/monitor.tscn" id="8_c5m01"]
 [ext_resource type="PackedScene" uid="uid://c0qve48tv7gr4" path="res://scences/pickable_monitor.tscn" id="9_8xxoj"]
 
@@ -339,7 +339,7 @@ shape = SubResource("CylinderShape3D_125ab")
 
 [node name="Library" type="Node3D" parent="Decorations"]
 
-[node name="Table?" parent="Decorations/Library" instance=ExtResource("6_8pc30")]
+[node name="Table" parent="Decorations/Library" instance=ExtResource("6_8pc30")]
 transform = Transform3D(-1.09278e-07, 0, 5, 0, 2.5, 0, -2.5, 0, -2.18557e-07, 0, 0.715, 13.04)
 
 [node name="Bookcases" type="Node3D" parent="Decorations/Library"]
