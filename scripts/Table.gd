@@ -1,37 +1,53 @@
 extends MeshInstance3D
 
-var Capsule = false
 var Prism = false
-var Box = false
+var Capsule = false
+var Cube = false
 
 func body_processing(entered, area, body):
-	print(area)
-	print(body)
-	print(body.has_method("get_metadata"))
-	if body.has_meta("Shape"):
-		var shape = body.get_meta("Shape")
-		if shape == "capsule" and entered == true: Capsule = true
-		elif shape == "capsule": Capsule = false
-		elif shape == "prism" and entered == true: Prism = true
-		elif shape == "prism": Prism = false
-		elif shape == "box" and entered == true: Box = true
-		elif shape == "box": Box = false
-		if Capsule == true and Prism == true and Box == true: self.queue_free()
+	print("-----------------------")
+	print(entered, " ", area, " ", body)
+	if body.find_parent("Prism") != null:
+		print("Body is a Prism")
+		if area == "Prism":
+			print("Area is Prism spot")
+			if entered == true:
+				Prism = true
+			else: 
+				Prism = false
+	if body.find_parent("Capsule") != null:
+		print("Body is a Capsule")
+		if area == "Capsule":
+			print("Area is Capsule spot")
+			if entered == true:
+				Capsule = true
+			else: 
+				Capsule = false
+	if body.find_parent("Cube") != null:
+		print("Body is a Cube")
+		if area == "Cube":
+			print("Area is Cube spot")
+			if entered == true:
+				Cube = true
+			else: 
+				Cube = false
+	print(Prism, " ", Capsule, " ", Cube)
+	if Capsule == true and Prism == true and Cube == true: self.queue_free()
 
-func _on_prism_body_entered(body):
-	body_processing(true, "Prism", body)
+func _on_prism_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
+	body_processing(true, "Prism", area)
 
-func _on_prism_body_exited(body):
-	body_processing(false, "Prism", body)
+func _on_prism_area_shape_exited(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
+	body_processing(false, "Prism", area)
 
-func _on_capsule_body_entered(body):
-	body_processing(true, "Capsule", body)
+func _on_capsule_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
+	body_processing(true, "Capsule", area)
 
-func _on_capsule_body_exited(body):
-	body_processing(false, "Capsule", body)
+func _on_capsule_area_shape_exited(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
+	body_processing(false, "Capsule", area)
 
-func _on_cube_body_entered(body):
-	body_processing(true, "Cube", body)
+func _on_cube_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
+	body_processing(true, "Cube", area)
 
-func _on_cube_body_exited(body):
-	body_processing(false, "Cube", body)
+func _on_cube_area_shape_exited(area_rid: RID, area: Area3D, area_shape_index: int, local_shape_index: int) -> void:
+	body_processing(false, "Cube", area)
