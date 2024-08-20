@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dtl2u06mor6j3"]
+[gd_scene load_steps=38 format=3 uid="uid://dtl2u06mor6j3"]
 
 [ext_resource type="ArrayMesh" uid="uid://o0eiclwqtgyt" path="res://assets/toilet.obj" id="1_p7det"]
 [ext_resource type="ArrayMesh" uid="uid://dptbbg40vdxod" path="res://assets/Winning text.obj" id="2_mntis"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cicb8pa6myei4" path="res://scences/table.tscn" id="6_8pc30"]
 [ext_resource type="PackedScene" uid="uid://pu3mtdq7cudh" path="res://scences/monitor.tscn" id="8_c5m01"]
 [ext_resource type="PackedScene" uid="uid://c0qve48tv7gr4" path="res://scences/pickable_monitor.tscn" id="9_8xxoj"]
+[ext_resource type="PackedScene" uid="uid://u3iiygsvenkn" path="res://scences/pickable_mug.tscn" id="10_n3u5f"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fdmkg"]
 size = Vector3(15, 0.2, 16)
@@ -412,3 +413,8 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.7, 0.791, 12.775)
 
 [node name="Monitor10" parent="Decorations/Library/Monitors" instance=ExtResource("8_c5m01")]
 transform = Transform3D(-3, 0, -2.62268e-07, 0, 3, 0, 2.62268e-07, 0, -3, -1.7, 0.791, 13.305)
+
+[node name="Mug" type="Node3D" parent="Decorations/Library"]
+
+[node name="PickableMug" parent="Decorations/Library/Mug" instance=ExtResource("10_n3u5f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.361083, 0.869108, 13.4707)
