@@ -1,6 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4eilvlc2v6ys"]
+[gd_scene load_steps=8 format=3 uid="uid://c4eilvlc2v6ys"]
 
 [ext_resource type="ArrayMesh" uid="uid://bcn83c63ea3yh" path="res://assets/bookcase.obj" id="1_7aqd1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jqwwa"]
+albedo_color = Color(0.611765, 0.427451, 0.298039, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w62g1"]
 size = Vector3(0.49762, 0.618576, 0.134888)
@@ -25,6 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.32, 0)
 [node name="Bookcase" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = ExtResource("1_7aqd1")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_jqwwa")
 
 [node name="CollisionShape3DBack" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000335693, -0.0120621, 0.0687866)
