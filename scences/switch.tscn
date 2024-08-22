@@ -40,7 +40,7 @@ angular_limit/upper = 0.733038
 angular_limit/lower = -0.733038
 
 [node name="PickableSwitchPole" parent="." instance=ExtResource("2_bibm6")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0)
+transform = Transform3D(0.0955331, -0.995426, -1.74046e-07, -0.995426, -0.0955331, 7.07193e-08, -8.70229e-08, 1.66494e-07, -1, 0, 0, 0)
 axis_lock_linear_x = true
 axis_lock_linear_y = true
 axis_lock_linear_z = true

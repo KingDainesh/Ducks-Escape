@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://gmsqipyqc10s"]
+[gd_scene load_steps=12 format=3 uid="uid://gmsqipyqc10s"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_tpm2g"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="2_uxci1"]
 [ext_resource type="Animation" uid="uid://bediglpx0rj7i" path="res://addons/godot-xr-tools/hands/animations/left/Grip 5.res" id="3_ftgk7"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="4_geqyr"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_j388l"]
+[ext_resource type="Animation" uid="uid://s1vqcxyqcvea" path="res://addons/godot-xr-tools/hands/animations/right/Grip 5.res" id="6_e1rek"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dcsr8"]
 
@@ -20,7 +21,7 @@ closed_pose = ExtResource("3_ftgk7")
 
 [sub_resource type="Resource" id="Resource_u3kbc"]
 script = ExtResource("4_geqyr")
-closed_pose = ExtResource("3_ftgk7")
+closed_pose = ExtResource("6_e1rek")
 
 [node name="PickablePrism" type="RigidBody3D"]
 collision_layer = 4

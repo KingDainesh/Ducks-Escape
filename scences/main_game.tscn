@@ -255,6 +255,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0572792, 4.18)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/CellRooms"]
 shape = SubResource("BoxShape3D_lp0xu")
+disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/CellRooms/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.062, 0)
@@ -268,6 +269,7 @@ mesh = SubResource("BoxMesh_ixc5k")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Library"]
 shape = SubResource("BoxShape3D_2jwa2")
+disabled = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21, 50)

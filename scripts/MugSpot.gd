@@ -11,4 +11,5 @@ func _on_area_shape_entered(area_rid: RID, area: Area3D, area_shape_index: int, 
 	if "PickableMug" in str(area.get_parent()):
 		var scene = self.find_parent("Game")
 		if scene != null:
-			scene.find_child("ByeByeWall").queue_free()
+			if scene.find_child("ByeByeWall") != null:
+				scene.find_child("ByeByeWall").queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://borgpsutpb2am"]
+[gd_scene load_steps=42 format=3 uid="uid://borgpsutpb2am"]
 
 [ext_resource type="ArrayMesh" uid="uid://o0eiclwqtgyt" path="res://assets/toilet.obj" id="1_hbsfg"]
 [ext_resource type="ArrayMesh" uid="uid://s2y1m2wyoos0" path="res://assets/untitled.obj" id="2_n75s5"]
@@ -11,7 +11,6 @@
 [ext_resource type="ArrayMesh" uid="uid://de5njd4s8nir4" path="res://assets/Wall_With_Hole.obj" id="9_36gmx"]
 [ext_resource type="ArrayMesh" uid="uid://cd1au4jdcsprv" path="res://assets/bars.obj" id="11_plyvg"]
 [ext_resource type="PackedScene" uid="uid://cfj60w0fsxt0v" path="res://scences/switch.tscn" id="12_tjq5q"]
-[ext_resource type="Script" path="res://scripts/switch.gd" id="13_3a5ca"]
 [ext_resource type="PackedScene" uid="uid://26hbsqkv4b63" path="res://scences/Poster.tscn" id="14_c1lx3"]
 [ext_resource type="PackedScene" uid="uid://cm1j5f3pimble" path="res://scences/duck_nest.tscn" id="15_c400q"]
 
@@ -103,10 +102,6 @@ size = Vector3(4.32104, 1.8432, 0.527588)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6jpl8"]
 size = Vector3(1.297, 2.30481, 0.129707)
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sok5s"]
-radius = 0.0315574
-height = 0.187732
 
 [node name="cell_player" type="Node3D"]
 
@@ -308,18 +303,9 @@ shape = SubResource("BoxShape3D_6jpl8")
 [node name="Switch" parent="." instance=ExtResource("12_tjq5q")]
 transform = Transform3D(-4.37114e-08, -8.74228e-08, -1, 0, -1, 8.74228e-08, -1, 3.82137e-15, 4.37114e-08, 1.60235, 0.928676, -0.00233543)
 
-[node name="Area3D" type="Area3D" parent="Switch"]
-script = ExtResource("13_3a5ca")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Switch/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0694615, 0.161292, 0)
-shape = SubResource("CapsuleShape3D_sok5s")
-
 [node name="Poster" parent="." instance=ExtResource("14_c1lx3")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 1.35, 0.001)
 freeze = true
 
 [node name="DuckNest" parent="." instance=ExtResource("15_c400q")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.76154, 0.230194, -0.754607)
-
-[connection signal="body_entered" from="Switch/Area3D" to="Switch/Area3D" method="_on_body_entered"]
