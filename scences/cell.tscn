@@ -220,7 +220,7 @@ shape = SubResource("BoxShape3D_fjrjk")
 mesh = SubResource("BoxMesh_hr1xr")
 
 [node name="PickableNest" parent="." instance=ExtResource("8_ww416")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.788413, 0, -0.886201)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.788413, 0.147213, -0.886201)
 
 [node name="Bars2" type="StaticBody3D" parent="."]
 transform = Transform3D(0.45, 0, 0, 0, 1.25, 0, 0, 0, 0.25, -0.0110567, 0.0601953, 1.44302)
