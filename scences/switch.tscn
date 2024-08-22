@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cfj60w0fsxt0v"]
 
-[ext_resource type="Script" path="res://scences/switch.gd" id="1_7jcpg"]
+[ext_resource type="Script" path="res://scripts/switch (2).gd" id="1_7jcpg"]
 [ext_resource type="ArrayMesh" uid="uid://denaq4lcc0nbt" path="res://assets/Switch_Pivot.obj" id="1_or7go"]
 [ext_resource type="PackedScene" uid="uid://de4car44qrxhr" path="res://scences/pickable_switch_pole.tscn" id="2_bibm6"]
 

@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgg7c4eugwikj"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_cxycv"]
+[ext_resource type="ArrayMesh" uid="uid://duolxvy3v28u8" path="res://assets/plantpot.obj" id="2_w2ts2"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_12p7k"]
+height = 0.874
+radius = 0.202
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i4wie"]
+albedo_color = Color(0.941176, 0.368627, 0.254902, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f1865"]
+albedo_color = Color(0.380392, 0.25098, 0.207843, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ar3tc"]
+albedo_color = Color(0.611765, 0.427451, 0.298039, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b31tg"]
+albedo_color = Color(0.364706, 0.768627, 0.0941176, 1)
+
+[node name="PickablePlantPot" instance=ExtResource("1_cxycv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.155972, 0)
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.288, 0)
+shape = SubResource("CylinderShape3D_12p7k")
+
+[node name="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("2_w2ts2")
+surface_material_override/0 = SubResource("StandardMaterial3D_i4wie")
+surface_material_override/1 = SubResource("StandardMaterial3D_f1865")
+surface_material_override/2 = SubResource("StandardMaterial3D_ar3tc")
+surface_material_override/3 = SubResource("StandardMaterial3D_b31tg")
+
+[node name="GrabPointHandLeft" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.163, 0.177, -0.05)
+
+[node name="GrabPointHandRight" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.163, 0.177, -0.05)

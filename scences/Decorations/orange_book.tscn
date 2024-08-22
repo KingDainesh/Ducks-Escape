@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgd8h8w5g8vhk"]
+
+[ext_resource type="ArrayMesh" uid="uid://w101ollb6j7o" path="res://assets/book.obj" id="1_d0ptu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_od6w2"]
+size = Vector3(0.225, 0.261, 0.079)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d4eoo"]
+albedo_color = Color(0.870588, 0.792157, 0.435294, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r2gau"]
+albedo_color = Color(1, 0.529412, 0, 1)
+
+[node name="OrangeBook" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0229645, -0.000324249, -4.57764e-05)
+shape = SubResource("BoxShape3D_od6w2")
+
+[node name="Book" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+mesh = ExtResource("1_d0ptu")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_d4eoo")
+surface_material_override/1 = SubResource("StandardMaterial3D_r2gau")

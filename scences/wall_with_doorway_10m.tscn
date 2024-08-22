@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0f3kkvepnywt"]
+
+[ext_resource type="ArrayMesh" uid="uid://vir5yra8ig54" path="res://assets/WallWithDoor.obj" id="1_eae7q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_efvdn"]
+size = Vector3(0.1, 3.5, 4.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_su8t8"]
+size = Vector3(0.0921631, 1.49905, 0.798828)
+
+[node name="WallWithDoorway10m" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="WallWithDoor" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("1_eae7q")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, -2.70107)
+shape = SubResource("BoxShape3D_efvdn")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 2.7)
+shape = SubResource("BoxShape3D_efvdn")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00262451, 2.7479, -0.00102758)
+shape = SubResource("BoxShape3D_su8t8")

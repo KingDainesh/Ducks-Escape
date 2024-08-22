@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cim3jxtohmfg6"
+path="res://.godot/imported/WallWithDoor5m.obj-f7a2186eb14ef9c1da9ed59f8865a44b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/WallWithDoor5m.obj-f7a2186eb14ef9c1da9ed59f8865a44b.mesh"]
+
+source_file="res://assets/WallWithDoor5m.obj"
+dest_files=["res://.godot/imported/WallWithDoor5m.obj-f7a2186eb14ef9c1da9ed59f8865a44b.mesh", "res://.godot/imported/WallWithDoor5m.obj-f7a2186eb14ef9c1da9ed59f8865a44b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

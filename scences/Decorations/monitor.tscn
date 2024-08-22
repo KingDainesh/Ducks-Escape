@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://pu3mtdq7cudh"]
+
+[ext_resource type="ArrayMesh" uid="uid://bethc6uqtb381" path="res://assets/monitor.obj" id="1_rj6bk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pkwpb"]
+albedo_color = Color(0.34902, 0.34902, 0.34902, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lvr6x"]
+albedo_color = Color(0.349689, 0.349689, 0.349689, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8o0ch"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_37v0l"]
+size = Vector3(0.204102, 0.216558, 0.105865)
+
+[node name="Monitor" type="Node3D"]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Monitor" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = ExtResource("1_rj6bk")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_pkwpb")
+surface_material_override/1 = SubResource("StandardMaterial3D_lvr6x")
+surface_material_override/2 = SubResource("StandardMaterial3D_8o0ch")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.101798, 0)
+shape = SubResource("BoxShape3D_37v0l")
