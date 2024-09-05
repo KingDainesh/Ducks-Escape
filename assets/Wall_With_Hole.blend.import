@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c0xrkfp5prxna"
-path="res://.godot/imported/Wall_With_Hole.blend-0ad0236d2186103f4af71b6b0087da9b.scn"
+valid=false
 
 [deps]
 
 source_file="res://assets/Wall_With_Hole.blend"
-dest_files=["res://.godot/imported/Wall_With_Hole.blend-0ad0236d2186103f4af71b6b0087da9b.scn"]
 
 [params]
 

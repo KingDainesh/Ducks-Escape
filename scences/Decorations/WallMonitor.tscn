@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://b54fxpv64gjsu"]
+
+[ext_resource type="ArrayMesh" uid="uid://c4sqv8548sr11" path="res://assets/WallMonitor.obj" id="1_qyeks"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uom7a"]
+albedo_color = Color(0.34902, 0.34902, 0.34902, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fng8f"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lmljq"]
+size = Vector3(2.01562, 1.57452, 0.141418)
+
+[node name="WallMonitor" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="WallMonitor" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, -0.5, 0)
+mesh = ExtResource("1_qyeks")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_uom7a")
+surface_material_override/1 = SubResource("StandardMaterial3D_fng8f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00292969, 0.802399, -0.0978699)
+shape = SubResource("BoxShape3D_lmljq")

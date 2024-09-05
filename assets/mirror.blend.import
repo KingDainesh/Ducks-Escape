@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b4pv24d4bintv"
-path="res://.godot/imported/mirror.blend-4dc83f9ce7367f8d0f08032ebd882bd0.scn"
+valid=false
 
 [deps]
 
 source_file="res://assets/mirror.blend"
-dest_files=["res://.godot/imported/mirror.blend-4dc83f9ce7367f8d0f08032ebd882bd0.scn"]
 
 [params]
 

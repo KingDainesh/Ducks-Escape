@@ -1,16 +1,16 @@
-[gd_scene load_steps=54 format=3 uid="uid://dtl2u06mor6j3"]
+[gd_scene load_steps=59 format=3 uid="uid://dtl2u06mor6j3"]
 
 [ext_resource type="ArrayMesh" uid="uid://o0eiclwqtgyt" path="res://assets/toilet.obj" id="1_p7det"]
 [ext_resource type="ArrayMesh" uid="uid://dptbbg40vdxod" path="res://assets/Winning text.obj" id="2_mntis"]
 [ext_resource type="PackedScene" uid="uid://borgpsutpb2am" path="res://scences/cell_player.tscn" id="3_1cppg"]
 [ext_resource type="PackedScene" uid="uid://cuwxj0gu6ew5p" path="res://scences/cell.tscn" id="4_11qas"]
 [ext_resource type="PackedScene" uid="uid://c4eilvlc2v6ys" path="res://bookcase.tscn" id="5_lhy3m"]
-[ext_resource type="PackedScene" uid="uid://c5ijocje3eqqh" path="res://scences/wall_with_doorway_5m.tscn" id="5_naql3"]
+[ext_resource type="PackedScene" path="res://scences/wall_with_doorway_5m.tscn" id="5_naql3"]
 [ext_resource type="PackedScene" uid="uid://dgg7c4eugwikj" path="res://scences/Decorations/pickable_plant_pot.tscn" id="6_5n4dd"]
-[ext_resource type="PackedScene" uid="uid://cicb8pa6myei4" path="res://scences/table.tscn" id="6_8pc30"]
+[ext_resource type="PackedScene" path="res://scences/table.tscn" id="6_8pc30"]
 [ext_resource type="PackedScene" uid="uid://pu3mtdq7cudh" path="res://scences/Decorations/monitor.tscn" id="8_c5m01"]
-[ext_resource type="PackedScene" uid="uid://c0qve48tv7gr4" path="res://scences/pickable_monitor.tscn" id="9_8xxoj"]
-[ext_resource type="PackedScene" uid="uid://u3iiygsvenkn" path="res://scences/pickable_mug.tscn" id="10_n3u5f"]
+[ext_resource type="PackedScene" path="res://scences/pickable_monitor.tscn" id="9_8xxoj"]
+[ext_resource type="PackedScene" path="res://scences/pickable_mug.tscn" id="10_n3u5f"]
 [ext_resource type="PackedScene" uid="uid://cj77wjtkyhcyi" path="res://scences/Decorations/blue_book.tscn" id="11_mdaxm"]
 [ext_resource type="Script" path="res://scripts/MugSpot.gd" id="11_rkqcm"]
 [ext_resource type="PackedScene" uid="uid://cssyaom8welbq" path="res://scences/player.tscn" id="12_2g66n"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://3iwahk53p0th" path="res://scences/Decorations/purple_book.tscn" id="14_rhajh"]
 [ext_resource type="PackedScene" uid="uid://cg8vso3xwq2nj" path="res://scences/Decorations/red_book.tscn" id="15_yxn55"]
 [ext_resource type="PackedScene" uid="uid://dtndandosvwor" path="res://scences/Decorations/yellow_book.tscn" id="16_sn2me"]
+[ext_resource type="PackedScene" uid="uid://b54fxpv64gjsu" path="res://scences/Decorations/WallMonitor.tscn" id="18_ov4l7"]
 [ext_resource type="ArrayMesh" uid="uid://07ko682uewxt" path="res://assets/Hint1.obj" id="19_7br5w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fdmkg"]
@@ -103,10 +104,22 @@ size = Vector3(0.1, 3.5, 20)
 size = Vector3(0.1, 3.5, 20)
 
 [sub_resource type="BoxMesh" id="BoxMesh_n7env"]
-size = Vector3(4, 3.5, 0.1)
+size = Vector3(2, 3.5, 0.1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dagqy"]
-size = Vector3(4, 3.5, 0.1)
+size = Vector3(2, 3.5, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_72mf2"]
+size = Vector3(10, 3.5, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tpj8d"]
+size = Vector3(10, 3.5, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hjcd4"]
+size = Vector3(5, 3.5, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vbejj"]
+size = Vector3(5, 3.5, 0.1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_2u35o"]
 top_radius = 0.25
@@ -248,6 +261,8 @@ light_color = Color(1, 1, 0.494118, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.1, 0)
 light_color = Color(1, 1, 0.494118, 1)
 
+[node name="GuardsRoom" type="Node3D" parent="Roof"]
+
 [node name="Floor" type="Node3D" parent="."]
 
 [node name="CellRooms" type="StaticBody3D" parent="Floor"]
@@ -326,15 +341,16 @@ mesh = SubResource("BoxMesh_4oydd")
 shape = SubResource("BoxShape3D_ecrwe")
 
 [node name="WallWithDoorway5m" parent="Walls/Library" instance=ExtResource("5_naql3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.955, -0.0596166, 0.04)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.955, 0, 0.04)
 
 [node name="WallWithDoorway5m2" parent="Walls/Library" instance=ExtResource("5_naql3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.955, -0.06, 0.04)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.955, 0, 0.04)
 
 [node name="ExtraWalls" type="Node3D" parent="Walls"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Walls/ExtraWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 1.762, 7.669)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/ExtraWalls/StaticBody3D"]
 mesh = SubResource("BoxMesh_qrfa8")
@@ -344,6 +360,7 @@ shape = SubResource("BoxShape3D_f7o02")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Walls/ExtraWalls"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.5, 1.762, 7.669)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/ExtraWalls/StaticBody3D2"]
 mesh = SubResource("BoxMesh_qrfa8")
@@ -361,7 +378,7 @@ mesh = SubResource("BoxMesh_qrfa8")
 shape = SubResource("BoxShape3D_f7o02")
 
 [node name="StaticBody3D4" type="StaticBody3D" parent="Walls/ExtraWalls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.924, 1.762, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 1.762, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/ExtraWalls/StaticBody3D4"]
 mesh = SubResource("BoxMesh_n7env")
@@ -370,13 +387,46 @@ mesh = SubResource("BoxMesh_n7env")
 shape = SubResource("BoxShape3D_dagqy")
 
 [node name="StaticBody3D5" type="StaticBody3D" parent="Walls/ExtraWalls"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.924, 1.762, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.90228, 1.80444, -0.00218081)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/ExtraWalls/StaticBody3D5"]
 mesh = SubResource("BoxMesh_n7env")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/ExtraWalls/StaticBody3D5"]
 shape = SubResource("BoxShape3D_dagqy")
+
+[node name="GuardsRoom" type="Node3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9, 0, 0)
+
+[node name="GuardsRoom-Z" type="StaticBody3D" parent="Walls/GuardsRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.804, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/GuardsRoom/GuardsRoom-Z"]
+mesh = SubResource("BoxMesh_72mf2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/GuardsRoom/GuardsRoom-Z"]
+shape = SubResource("BoxShape3D_tpj8d")
+
+[node name="GuardsRoom-X" type="StaticBody3D" parent="Walls/GuardsRoom"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 1.804, 2.555)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/GuardsRoom/GuardsRoom-X"]
+mesh = SubResource("BoxMesh_hjcd4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/GuardsRoom/GuardsRoom-X"]
+shape = SubResource("BoxShape3D_vbejj")
+
+[node name="GuardsRoomZ" type="StaticBody3D" parent="Walls/GuardsRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.804, 5.1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/GuardsRoom/GuardsRoomZ"]
+mesh = SubResource("BoxMesh_72mf2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/GuardsRoom/GuardsRoomZ"]
+shape = SubResource("BoxShape3D_tpj8d")
+
+[node name="WallWithDoorway5m" parent="Walls/GuardsRoom" instance=ExtResource("5_naql3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.055, 2.55)
 
 [node name="Decorations" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
@@ -1206,6 +1256,11 @@ transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, -1.21102
 
 [node name="BlueBook121" parent="Decorations/Library/Books" instance=ExtResource("14_rhajh")]
 transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, -1.31906, 0.328852, 11.0955)
+
+[node name="GuardsRoom" type="Node3D" parent="Decorations"]
+
+[node name="WallMonitor" parent="Decorations" instance=ExtResource("18_ov4l7")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16.2816, 0.939625, 2.26422)
 
 [node name="Puzzles" type="Node3D" parent="."]
 
