@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://dtl2u06mor6j3"]
+[gd_scene load_steps=71 format=3 uid="uid://dtl2u06mor6j3"]
 
 [ext_resource type="ArrayMesh" uid="uid://o0eiclwqtgyt" path="res://assets/toilet.obj" id="1_p7det"]
 [ext_resource type="ArrayMesh" uid="uid://dptbbg40vdxod" path="res://assets/Winning text.obj" id="2_mntis"]
@@ -21,6 +21,10 @@
 [ext_resource type="PackedScene" uid="uid://dtndandosvwor" path="res://scences/Decorations/yellow_book.tscn" id="16_sn2me"]
 [ext_resource type="PackedScene" uid="uid://b54fxpv64gjsu" path="res://scences/Decorations/WallMonitor.tscn" id="18_ov4l7"]
 [ext_resource type="ArrayMesh" uid="uid://07ko682uewxt" path="res://assets/Hint1.obj" id="19_7br5w"]
+[ext_resource type="PackedScene" uid="uid://cjxo4h0xiehof" path="res://scences/Decorations/table.tscn" id="19_46f3s"]
+[ext_resource type="ArrayMesh" uid="uid://dda367g7yd8an" path="res://assets/raccoon cop.obj" id="20_f7iru"]
+[ext_resource type="PackedScene" uid="uid://begqu53spxmxo" path="res://scences/Decorations/locker.tscn" id="21_a6gvb"]
+[ext_resource type="PackedScene" uid="uid://dvh2jbfwf6drx" path="res://scences/Decorations/bench.tscn" id="22_e3efl"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fdmkg"]
 size = Vector3(15, 0.2, 16)
@@ -63,6 +67,9 @@ size = Vector3(10, 0.1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8xs4d"]
 size = Vector3(10, 0.1, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ejv7"]
+size = Vector3(10.2, 0.1, 5.2)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lp0xu"]
 size = Vector3(10, 0.1, 10)
@@ -131,11 +138,32 @@ radial_segments = 8
 height = 3.5
 radius = 0.25
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_1umcy"]
+viewport_path = NodePath("Cameras/GuardsRoom")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sep4a"]
+viewport_path = NodePath("Cameras/Library")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_8hb2s"]
+viewport_path = NodePath("Cameras/Cells")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2bwj"]
+albedo_color = Color(0.27451, 0.290196, 0.301961, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3xnbs"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0n3f"]
+albedo_color = Color(0, 0, 0, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_lmt11"]
 size = Vector3(0.2, 0.2, 0.2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gbm7u"]
 albedo_color = Color(0.535054, 0.418978, 0.29124, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7iw8y"]
+size = Vector3(0.2, 0.2, 0.5)
 
 [node name="Game" type="Node3D"]
 
@@ -262,6 +290,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -0.1, 0)
 light_color = Color(1, 1, 0.494118, 1)
 
 [node name="GuardsRoom" type="Node3D" parent="Roof"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Roof/GuardsRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.95, 3.6, 2.55)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Roof/GuardsRoom/StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Roof/GuardsRoom/StaticBody3D"]
+mesh = SubResource("BoxMesh_6ejv7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Roof/GuardsRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -0.2, 0)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Roof/GuardsRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -0.2, 0)
 
 [node name="Floor" type="Node3D" parent="."]
 
@@ -1259,8 +1301,102 @@ transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, -1.31906
 
 [node name="GuardsRoom" type="Node3D" parent="Decorations"]
 
-[node name="WallMonitor" parent="Decorations" instance=ExtResource("18_ov4l7")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -16.2816, 0.939625, 2.26422)
+[node name="WallMonitors" type="Node3D" parent="Decorations/GuardsRoom"]
+
+[node name="WallMonitor" parent="Decorations/GuardsRoom/WallMonitors" instance=ExtResource("18_ov4l7")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -16.8939, 2.10042, 4.48377)
+
+[node name="Sprite3D" type="Sprite3D" parent="Decorations/GuardsRoom/WallMonitors/WallMonitor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79647, -0.169462)
+pixel_size = 0.003
+texture = SubResource("ViewportTexture_1umcy")
+
+[node name="WallMonitor2" parent="Decorations/GuardsRoom/WallMonitors" instance=ExtResource("18_ov4l7")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -16.8939, 1.25143, 4.48377)
+
+[node name="Sprite3D" type="Sprite3D" parent="Decorations/GuardsRoom/WallMonitors/WallMonitor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79647, -0.169462)
+pixel_size = 0.003
+texture = SubResource("ViewportTexture_sep4a")
+
+[node name="WallMonitor4" parent="Decorations/GuardsRoom/WallMonitors" instance=ExtResource("18_ov4l7")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -16.8939, 2.10042, 0.589857)
+
+[node name="Sprite3D" type="Sprite3D" parent="Decorations/GuardsRoom/WallMonitors/WallMonitor4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79647, -0.169462)
+pixel_size = 0.003
+
+[node name="WallMonitor5" parent="Decorations/GuardsRoom/WallMonitors" instance=ExtResource("18_ov4l7")]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, -16.8939, 1.25143, 0.589857)
+
+[node name="Sprite3D" type="Sprite3D" parent="Decorations/GuardsRoom/WallMonitors/WallMonitor5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.79647, -0.16946)
+pixel_size = 0.003
+
+[node name="WallMonitor3" parent="Decorations/GuardsRoom/WallMonitors" instance=ExtResource("18_ov4l7")]
+transform = Transform3D(-6.11959e-08, 0, -0.5, 0, 1.4, 0, 1.4, 0, -2.18557e-08, -16.8572, 0.880136, 2.50564)
+
+[node name="Sprite3D" type="Sprite3D" parent="Decorations/GuardsRoom/WallMonitors/WallMonitor3"]
+transform = Transform3D(1, 0, 5.68434e-14, 0, 1, 0, -5.68434e-14, 0, 1, 0, 0.817609, -0.163071)
+pixel_size = 0.003
+texture = SubResource("ViewportTexture_8hb2s")
+
+[node name="Tables" type="Node3D" parent="Decorations/GuardsRoom"]
+
+[node name="Table" parent="Decorations/GuardsRoom/Tables" instance=ExtResource("19_46f3s")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 0, 4.1)
+
+[node name="Monitor" parent="Decorations/GuardsRoom/Tables" instance=ExtResource("8_c5m01")]
+transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, -15.2, 1, 4.1)
+
+[node name="Table2" parent="Decorations/GuardsRoom/Tables" instance=ExtResource("19_46f3s")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15, 0, 1.1)
+
+[node name="Monitor2" parent="Decorations/GuardsRoom/Tables" instance=ExtResource("8_c5m01")]
+transform = Transform3D(-1.74846e-07, 0, -4, 0, 4, 0, 4, 0, -1.74846e-07, -15.2, 1, 1.1)
+
+[node name="RaccoonCop" type="MeshInstance3D" parent="Decorations/GuardsRoom"]
+transform = Transform3D(-0.16383, 0, 0.114715, 0, 0.2, 0, -0.114715, 0, -0.16383, -7.82737, -0.00603795, 4.21161)
+mesh = ExtResource("20_f7iru")
+skeleton = NodePath("../Tables")
+surface_material_override/0 = SubResource("StandardMaterial3D_p2bwj")
+surface_material_override/1 = SubResource("StandardMaterial3D_3xnbs")
+surface_material_override/2 = SubResource("StandardMaterial3D_c0n3f")
+
+[node name="Lockers" type="Node3D" parent="Decorations/GuardsRoom"]
+
+[node name="Locker2" parent="Decorations/GuardsRoom/Lockers" instance=ExtResource("21_a6gvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.47, 0, 0.3)
+
+[node name="Locker3" parent="Decorations/GuardsRoom/Lockers" instance=ExtResource("21_a6gvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.47, 0, 0.3)
+
+[node name="Locker4" parent="Decorations/GuardsRoom/Lockers" instance=ExtResource("21_a6gvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.47, 0, 0.3)
+
+[node name="Locker5" parent="Decorations/GuardsRoom/Lockers" instance=ExtResource("21_a6gvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4772, 0, 0.30032)
+
+[node name="Locker6" parent="Decorations/GuardsRoom/Lockers" instance=ExtResource("21_a6gvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.47, 0, 0.3)
+
+[node name="Locker7" parent="Decorations/GuardsRoom/Lockers" instance=ExtResource("21_a6gvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.47, 0, 4.8)
+
+[node name="Locker8" parent="Decorations/GuardsRoom/Lockers" instance=ExtResource("21_a6gvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.47, 0, 4.8)
+
+[node name="Locker9" parent="Decorations/GuardsRoom/Lockers" instance=ExtResource("21_a6gvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.47, 0, 4.8)
+
+[node name="Locker10" parent="Decorations/GuardsRoom/Lockers" instance=ExtResource("21_a6gvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4772, 0, 4.8)
+
+[node name="Locker11" parent="Decorations/GuardsRoom/Lockers" instance=ExtResource("21_a6gvb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.47, 0, 4.8)
+
+[node name="Bench" parent="Decorations/GuardsRoom/Lockers" instance=ExtResource("22_e3efl")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -11, 0, 2.5)
 
 [node name="Puzzles" type="Node3D" parent="."]
 
@@ -1282,5 +1418,40 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.7
 transform = Transform3D(-0.1, -6.03983e-09, 6.60024e-16, 0, -1.74846e-09, -0.1, 1.50996e-08, -0.04, 4.37114e-09, 0.849778, 1.39946, 15.13)
 mesh = ExtResource("19_7br5w")
 surface_material_override/0 = SubResource("StandardMaterial3D_gbm7u")
+
+[node name="Cameras" type="Node3D" parent="."]
+
+[node name="GuardsRoom" type="SubViewport" parent="Cameras"]
+size = Vector2i(600, 500)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cameras/GuardsRoom"]
+transform = Transform3D(0.642787, 0.383022, 0.663414, 0, 0.866026, -0.5, -0.766044, 0.321394, 0.556671, -16.4534, 3.24581, 0.37519)
+mesh = SubResource("BoxMesh_7iw8y")
+
+[node name="Camera3D" type="Camera3D" parent="Cameras/GuardsRoom/MeshInstance3D"]
+transform = Transform3D(-0.999929, 0, 0.0119029, 0, 1, 0, -0.0119029, 0, -0.999929, 0.0100193, 0, 0.212324)
+fov = 83.2069
+
+[node name="Library" type="SubViewport" parent="Cameras"]
+size = Vector2i(650, 500)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cameras/Library"]
+transform = Transform3D(0.62932, 0.232398, 0.741584, 0, 0.95424, -0.299041, -0.777146, 0.188192, 0.600523, -4.44597, 3.27301, 10.7956)
+mesh = SubResource("BoxMesh_7iw8y")
+
+[node name="Camera3D" type="Camera3D" parent="Cameras/Library/MeshInstance3D"]
+transform = Transform3D(-0.999929, 0, 0.0119029, 0, 1, 0, -0.0119029, 0, -0.999929, 0.0100193, 0, 0.212324)
+fov = 106.2
+
+[node name="Cells" type="SubViewport" parent="Cameras"]
+size = Vector2i(620, 478)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cameras/Cells"]
+transform = Transform3D(0.642788, -0.323744, -0.694272, 0, 0.906308, -0.422618, 0.766044, 0.271654, 0.582563, 4.83848, 3.30293, 1.10011)
+mesh = SubResource("BoxMesh_7iw8y")
+
+[node name="Camera3D" type="Camera3D" parent="Cameras/Cells/MeshInstance3D"]
+transform = Transform3D(-0.999929, 0, 0.0119029, 0, 1, 0, -0.0119029, 0, -0.999929, 0.0100193, 0, 0.212324)
+fov = 83.2069
 
 [connection signal="area_shape_entered" from="Puzzles/Area3D" to="Puzzles/Area3D" method="_on_area_shape_entered"]

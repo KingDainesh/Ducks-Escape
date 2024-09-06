@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cjxo4h0xiehof"]
+
+[ext_resource type="ArrayMesh" uid="uid://cwrlu4tssqd4n" path="res://assets/table.obj" id="1_4cmgv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bhn0r"]
+albedo_color = Color(0.631373, 0.4, 0.184314, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_832ja"]
+size = Vector3(2, 1, 1)
+
+[node name="Table" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="Table" type="MeshInstance3D" parent="Area3D"]
+mesh = ExtResource("1_4cmgv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_bhn0r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.503363, 0)
+shape = SubResource("BoxShape3D_832ja")
