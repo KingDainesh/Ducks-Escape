@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://d065mrduu3a51"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_foj6q"]
+[ext_resource type="ArrayMesh" uid="uid://bkfxc6a2f5fdi" path="res://assets/Scale.obj" id="2_o1p83"]
+[ext_resource type="Script" path="res://scripts/ScalePuzzle.gd" id="3_gbpo4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1cn4v"]
+size = Vector3(0.573, 0.25, 0.628)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f6u73"]
+albedo_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_smi84"]
+size = Vector3(0.575, 0.324, 0.488)
+
+[node name="PickableScale" instance=ExtResource("1_foj6q")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.001, 0.121, -0.066)
+shape = SubResource("BoxShape3D_1cn4v")
+
+[node name="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = ExtResource("2_o1p83")
+surface_material_override/0 = SubResource("StandardMaterial3D_f6u73")
+
+[node name="Area3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.235, -0.148)
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("3_gbpo4")
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.001, 0.149, 0.11)
+shape = SubResource("BoxShape3D_smi84")
+
+[node name="Label3D" type="Label3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0.132959, 0.170597)
+text = "
+"
+font_size = 8
+outline_size = 1
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]

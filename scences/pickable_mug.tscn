@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://u3iiygsvenkn"]
+[gd_scene load_steps=9 format=3 uid="uid://bdvgs8yiks4lx"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_k4nue"]
 [ext_resource type="ArrayMesh" uid="uid://bbcawpp4csoya" path="res://assets/mug.obj" id="2_kk052"]
@@ -19,6 +19,7 @@ script = ExtResource("4_nykxp")
 closed_pose = ExtResource("5_2qwh4")
 
 [node name="PickableMug" instance=ExtResource("1_k4nue")]
+mass = 0.4
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -38,8 +39,8 @@ transform = Transform3D(0.980313, 0, -0.197452, 0, 1, 0, 0.197452, 0, 0.980313, 
 visible = true
 hand_pose = SubResource("Resource_aixju")
 
-[node name="Area3D" type="Area3D" parent="." index="4"]
+[node name="Area3D2" type="Area3D" parent="." index="4"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D" index="0"]
 shape = SubResource("CylinderShape3D_lpvwe")
 metadata/Class = "AH"

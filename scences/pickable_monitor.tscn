@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c0qve48tv7gr4"]
+[gd_scene load_steps=12 format=3 uid="uid://bj6f4j2k8adys"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_5hltq"]
 [ext_resource type="ArrayMesh" uid="uid://bethc6uqtb381" path="res://assets/monitor.obj" id="2_7s1ei"]
@@ -27,6 +27,7 @@ script = ExtResource("4_un7i1")
 closed_pose = ExtResource("5_mtja2")
 
 [node name="PickableMonitor" instance=ExtResource("1_5hltq")]
+mass = 5.0
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.306, 0)
@@ -41,7 +42,6 @@ surface_material_override/2 = SubResource("StandardMaterial3D_ub48b")
 
 [node name="GrabPointHandLeft" parent="." index="2"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.274276, 0.442153, 0.0247021)
-visible = false
 hand_pose = SubResource("Resource_bpx08")
 
 [node name="GrabPointHandRight" parent="." index="3"]
