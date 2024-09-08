@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://dum7hobbxciys"]
+
+[ext_resource type="ArrayMesh" uid="uid://bkfxc6a2f5fdi" path="res://assets/Scale.obj" id="1_pxlme"]
+[ext_resource type="Script" path="res://scripts/ScalePuzzle.gd" id="2_ygrtb"]
+[ext_resource type="PackedScene" uid="uid://cp02c03qugltl" path="res://scences/pickable_book.tscn" id="3_jl2ye"]
+[ext_resource type="PackedScene" uid="uid://bn7yo77l4p14" path="res://scences/Decorations/door.tscn" id="3_rq0ix"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tu7mw"]
+size = Vector3(0.573, 0.25, 0.628)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nxrx6"]
+albedo_color = Color(0.470588, 0.470588, 0.470588, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rshlf"]
+size = Vector3(0.575, 0.324, 0.488)
+
+[node name="Scale" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0.121, -0.066)
+shape = SubResource("BoxShape3D_tu7mw")
+metadata/Class = "AH"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = ExtResource("1_pxlme")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nxrx6")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.235, -0.148)
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("2_ygrtb")
+door_scene_path = ExtResource("3_rq0ix")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.001, 0.149, 0.11)
+shape = SubResource("BoxShape3D_rshlf")
+metadata/Class = "AH"
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 0.132959, 0.170597)
+text = "
+"
+font_size = 8
+outline_size = 1
+
+[node name="PickableBook" parent="." instance=ExtResource("3_jl2ye")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]

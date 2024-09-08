@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbfqqchpoqj51"]
+[gd_scene load_steps=6 format=3 uid="uid://cbfqqchpoqj51"]
 
 [ext_resource type="ArrayMesh" uid="uid://bs48ablgkeu1" path="res://assets/FoodTable.obj" id="1_8x7fw"]
 
@@ -9,11 +9,16 @@ albedo_color = Color(0.57902, 0.57902, 0.57902, 1)
 albedo_color = Color(0.999999, 0.996799, 0.714468, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7kjee"]
-size = Vector3(2.1, 2, 13.2)
+size = Vector3(1.11055, 2, 13.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ngtst"]
+size = Vector3(2.00488, 0.207275, 1)
 
 [node name="FoodTable" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 4
+collision_mask = 7
 
 [node name="FoodTable" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = ExtResource("1_8x7fw")
@@ -22,5 +27,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_h2heb")
 surface_material_override/1 = SubResource("StandardMaterial3D_ygfvb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0043335, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.494727, 1, 0)
 shape = SubResource("BoxShape3D_7kjee")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00771487, 1.09631, 0)
+shape = SubResource("BoxShape3D_ngtst")

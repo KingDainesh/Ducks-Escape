@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cuwxj0gu6ew5p"]
+[gd_scene load_steps=36 format=3 uid="uid://cuwxj0gu6ew5p"]
 
 [ext_resource type="ArrayMesh" uid="uid://o0eiclwqtgyt" path="res://assets/toilet.obj" id="1_06oqb"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="3_g2ehd"]
@@ -37,6 +37,8 @@ bottom_radius = 0.02
 height = 0.4
 
 [sub_resource type="Skin" id="Skin_h1odx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mbb2m"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_1ho6b"]
 height = 0.4
@@ -136,6 +138,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.303431, 0)
 mesh = SubResource("CylinderMesh_pusub")
 skin = SubResource("Skin_h1odx")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_mbb2m")
 
 [node name="ConeTwistJoint3D" type="ConeTwistJoint3D" parent="Cell/Roof/PickableObject"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.103838, 0)
@@ -176,6 +179,7 @@ shape = SubResource("BoxShape3D_fjrjk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cell/Wall -X/CollisionShape3D"]
 mesh = SubResource("BoxMesh_hr1xr")
+surface_material_override/0 = SubResource("StandardMaterial3D_mbb2m")
 
 [node name="SinkCollisionShape3D" type="CollisionShape3D" parent="Cell/Wall -X"]
 transform = Transform3D(-1.09278e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.09278e-08, -1.25303, 0.82348, 5.64154e-05)
@@ -209,6 +213,7 @@ shape = SubResource("BoxShape3D_fjrjk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cell/Wall X/CollisionShape3D"]
 mesh = SubResource("BoxMesh_hr1xr")
+surface_material_override/0 = SubResource("StandardMaterial3D_mbb2m")
 
 [node name="Wall -Z" type="StaticBody3D" parent="Cell"]
 
@@ -218,6 +223,7 @@ shape = SubResource("BoxShape3D_fjrjk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Cell/Wall -Z/CollisionShape3D"]
 mesh = SubResource("BoxMesh_hr1xr")
+surface_material_override/0 = SubResource("StandardMaterial3D_mbb2m")
 
 [node name="PickableNest" parent="." instance=ExtResource("8_ww416")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.788413, 0.147213, -0.886201)

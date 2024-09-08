@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3ng3ki45myy2"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_nyi7a"]
+[ext_resource type="ArrayMesh" uid="uid://h4ub5rvcp5a4" path="res://assets/plate.obj" id="2_45u0j"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n6y25"]
+height = 0.0232213
+radius = 0.24
+
+[node name="PickablePlate" instance=ExtResource("1_nyi7a")]
+mass = 0.5
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.99996, 0.00891851, 0, -0.00891851, 0.99996, 0, 0.00987906, 0)
+shape = SubResource("CylinderShape3D_n6y25")
+
+[node name="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+mesh = ExtResource("2_45u0j")
+
+[node name="GrabPointHandLeft" parent="." index="2"]
+transform = Transform3D(0.979775, 0, 0.200103, 0, 1, 0, -0.200103, 0, 0.979775, -0.214545, 0.0386825, -0.0582978)
+
+[node name="GrabPointHandRight" parent="." index="3"]
+transform = Transform3D(0.980313, 0, -0.197452, 0, 1, 0, 0.197452, 0, 0.980313, 0.214272, 0.0408589, -0.0575863)
+
+[node name="Area3D" parent="." index="4"]
+visible = false
