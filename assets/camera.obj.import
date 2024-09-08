@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dnlqxm2sddhoj"
+path="res://.godot/imported/camera.obj-da37516cd9267f424cc5695ead3e432b.mesh"
+
+[deps]
+
+files=["res://.godot/imported/camera.obj-da37516cd9267f424cc5695ead3e432b.mesh"]
+
+source_file="res://assets/camera.obj"
+dest_files=["res://.godot/imported/camera.obj-da37516cd9267f424cc5695ead3e432b.mesh", "res://.godot/imported/camera.obj-da37516cd9267f424cc5695ead3e432b.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
