@@ -364,6 +364,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94999, -0.2, 0)
 [node name="OmniLight3D2" type="OmniLight3D" parent="Roof/GuardsRoom/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05001, -0.2, 0)
 
+[node name="ReligionRoom" type="Node3D" parent="Roof"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.1)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Roof/ReligionRoom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.95, 3.6, 2.55)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Roof/ReligionRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500069, 0, 0)
+shape = SubResource("BoxShape3D_wvkv0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Roof/ReligionRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500069, 0, 0)
+mesh = SubResource("BoxMesh_6ejv7")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Roof/ReligionRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94999, -0.2, 0)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Roof/ReligionRoom/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.05001, -0.2, 0)
+
 [node name="Cafe" type="Node3D" parent="Roof"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Roof/Cafe"]
@@ -622,6 +642,48 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500078, 0, 0)
 shape = SubResource("BoxShape3D_tpj8d")
 
 [node name="WallWithDoorway5m" parent="Walls/GuardsRoom" instance=ExtResource("5_naql3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94999, 0.055, 2.55)
+
+[node name="Religion" type="Node3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9, 0, 5.1)
+
+[node name="ReligionRoom-Z" type="StaticBody3D" parent="Walls/Religion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.804, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Religion/ReligionRoom-Z"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500078, 0, 0)
+mesh = SubResource("BoxMesh_72mf2")
+surface_material_override/0 = SubResource("StandardMaterial3D_6ns4n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Religion/ReligionRoom-Z"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500078, 0, 0)
+shape = SubResource("BoxShape3D_tpj8d")
+
+[node name="ReligionRoom-X" type="StaticBody3D" parent="Walls/Religion"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 1.804, 2.555)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Religion/ReligionRoom-X"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0500088)
+mesh = SubResource("BoxMesh_hjcd4")
+surface_material_override/0 = SubResource("StandardMaterial3D_bujsf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Religion/ReligionRoom-X"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0500088)
+shape = SubResource("BoxShape3D_vbejj")
+
+[node name="ReligionRoomZ" type="StaticBody3D" parent="Walls/Religion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.804, 5.1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Religion/ReligionRoomZ"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500078, 0, 0)
+mesh = SubResource("BoxMesh_72mf2")
+surface_material_override/0 = SubResource("StandardMaterial3D_qwob7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Religion/ReligionRoomZ"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0500078, 0, 0)
+shape = SubResource("BoxShape3D_tpj8d")
+
+[node name="WallWithDoorway5m" parent="Walls/Religion" instance=ExtResource("5_naql3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.94999, 0.055, 2.55)
 
 [node name="Cafe" type="Node3D" parent="Walls"]

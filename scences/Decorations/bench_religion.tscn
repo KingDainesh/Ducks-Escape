@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg63bk5cp4sv4"]
+
+[ext_resource type="ArrayMesh" uid="uid://bb7w6qc1hqqx0" path="res://assets/BenchReligion.obj" id="1_hgnef"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5t0ew"]
+albedo_color = Color(0.631373, 0.4, 0.184314, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_efu6d"]
+size = Vector3(0.6, 0.4, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qntlb"]
+size = Vector3(0.200713, 0.6, 2)
+
+[node name="BenchReligion" type="Node3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="BenchReligion" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+mesh = ExtResource("1_hgnef")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_5t0ew")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.198792, 0.200854, 0)
+shape = SubResource("BoxShape3D_efu6d")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000778809, 0.699402, 0)
+shape = SubResource("BoxShape3D_qntlb")
