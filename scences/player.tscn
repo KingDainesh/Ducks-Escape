@@ -29,6 +29,8 @@ pose = &"aim"
 strafe = true
 
 [node name="FunctionPickup" parent="LeftHand" instance=ExtResource("4_p7ten")]
+grab_collision_mask = 327692
+ranged_collision_mask = 12
 
 [node name="FunctionPointer" parent="LeftHand" instance=ExtResource("5_1jy0a")]
 show_laser = 2
@@ -46,6 +48,8 @@ pose = &"aim"
 turn_mode = 2
 
 [node name="FunctionPickup" parent="RightHand" instance=ExtResource("4_p7ten")]
+grab_collision_mask = 327692
+ranged_collision_mask = 12
 
 [node name="FunctionPointer" parent="RightHand" instance=ExtResource("5_1jy0a")]
 show_laser = 2
