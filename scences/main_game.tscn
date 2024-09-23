@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://dtl2u06mor6j3"]
+[gd_scene load_steps=116 format=3 uid="uid://dtl2u06mor6j3"]
 
 [ext_resource type="ArrayMesh" uid="uid://o0eiclwqtgyt" path="res://assets/toilet.obj" id="1_p7det"]
 [ext_resource type="ArrayMesh" uid="uid://dptbbg40vdxod" path="res://assets/Winning text.obj" id="2_mntis"]
@@ -112,15 +112,6 @@ size = Vector3(150, 0.1, 150)
 [sub_resource type="BoxShape3D" id="BoxShape3D_gdsfn"]
 size = Vector3(150, 0.1, 150)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4nor"]
-albedo_color = Color(1, 1, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2q860"]
-albedo_color = Color(1, 0.596078, 0, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghqry"]
-albedo_color = Color(0, 0, 0, 1)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_668ar"]
 size = Vector3(9.8, 1.35, 3)
 
@@ -229,6 +220,18 @@ albedo_color = Color(0.27451, 0.290196, 0.301961, 1)
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c0n3f"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_amt4w"]
+size = Vector3(3.15991, 3.26465, 1.40921)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y4nor"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2q860"]
+albedo_color = Color(1, 0.596078, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ghqry"]
 albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_pbjnk"]
@@ -568,13 +571,6 @@ mesh = SubResource("BoxMesh_ai523")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
 shape = SubResource("BoxShape3D_gdsfn")
-
-[node name="Duck" type="MeshInstance3D" parent="Floor/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.8838, 1.5442, -22.0817)
-mesh = ExtResource("5_qfyct")
-surface_material_override/0 = SubResource("StandardMaterial3D_y4nor")
-surface_material_override/1 = SubResource("StandardMaterial3D_2q860")
-surface_material_override/2 = SubResource("StandardMaterial3D_ghqry")
 
 [node name="Walls" type="Node3D" parent="."]
 
@@ -2071,6 +2067,20 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11.5,
 
 [node name="BenchReligion8" parent="Decorations/ReligionRoom" instance=ExtResource("27_5cxvm")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -11.5, 0.04, 9.15)
+
+[node name="Area3D" type="Area3D" parent="Decorations/ReligionRoom"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Decorations/ReligionRoom/Area3D"]
+transform = Transform3D(-0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, -15.6672, 1.00036, 7.85471)
+shape = SubResource("BoxShape3D_amt4w")
+
+[node name="Duck" type="MeshInstance3D" parent="Decorations/ReligionRoom/Area3D"]
+transform = Transform3D(-0.7, 0, -1.05697e-07, 0, 0.7, 0, 1.05697e-07, 0, -0.7, -15.6654, 0.9549, 8.4)
+mesh = ExtResource("5_qfyct")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_y4nor")
+surface_material_override/1 = SubResource("StandardMaterial3D_2q860")
+surface_material_override/2 = SubResource("StandardMaterial3D_ghqry")
 
 [node name="Showers" type="Node3D" parent="Decorations"]
 
