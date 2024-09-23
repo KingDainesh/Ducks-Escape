@@ -1,8 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dum7hobbxciys"]
+[gd_scene load_steps=7 format=3 uid="uid://dum7hobbxciys"]
 
 [ext_resource type="ArrayMesh" uid="uid://bkfxc6a2f5fdi" path="res://assets/Scale.obj" id="1_pxlme"]
 [ext_resource type="Script" path="res://scripts/ScalePuzzle.gd" id="2_ygrtb"]
-[ext_resource type="PackedScene" uid="uid://cp02c03qugltl" path="res://scences/pickable_book.tscn" id="3_jl2ye"]
 [ext_resource type="PackedScene" uid="uid://bn7yo77l4p14" path="res://scences/Decorations/door.tscn" id="3_rq0ix"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tu7mw"]
@@ -47,9 +46,6 @@ text = "
 "
 font_size = 8
 outline_size = 1
-
-[node name="PickableBook" parent="." instance=ExtResource("3_jl2ye")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area3D" to="Area3D" method="_on_body_exited"]

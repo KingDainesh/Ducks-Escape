@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://b3lkifj3oat7p"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_tfans"]
+[ext_resource type="ArrayMesh" uid="uid://bkl2pxapgts7o" path="res://assets/bread.obj" id="2_bgaph"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_svj8y"]
+albedo_color = Color(1, 1, 0.733333, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_12we8"]
+albedo_color = Color(0.645727, 0.495012, 0.179106, 1)
+
+[node name="PickableBread" instance=ExtResource("1_tfans")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0.000823975, 0.0210019, -0.00131837)
+
+[node name="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 3.38554e-05, -0.00129691, -0.000202596)
+mesh = ExtResource("2_bgaph")
+surface_material_override/0 = SubResource("StandardMaterial3D_svj8y")
+surface_material_override/1 = SubResource("StandardMaterial3D_12we8")
+
+[node name="GrabPointHandLeft" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.09, 0.04, -0.06)
+
+[node name="GrabPointHandRight" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, 0.041, -0.06)

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c7imyuwnub1du"
+path="res://.godot/imported/duck.obj-39eec1a1cad97dd91769336d7533a591.mesh"
+
+[deps]
+
+files=["res://.godot/imported/duck.obj-39eec1a1cad97dd91769336d7533a591.mesh"]
+
+source_file="res://assets/duck.obj"
+dest_files=["res://.godot/imported/duck.obj-39eec1a1cad97dd91769336d7533a591.mesh", "res://.godot/imported/duck.obj-39eec1a1cad97dd91769336d7533a591.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
