@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://sg736qql6pvo"]
+
+[ext_resource type="ArrayMesh" uid="uid://2ikrmgtr5n4f" path="res://assets/hoop.obj" id="1_xnq54"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vks3a"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_plq0l"]
+albedo_color = Color(1, 0.694118, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0leoy"]
+albedo_color = Color(0.531051, 0.531051, 0.531051, 1)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g0lot"]
+height = 3.05
+radius = 0.02
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eqwyj"]
+size = Vector3(1.13669, 0.802307, 0.074707)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a727e"]
+height = 0.2
+radius = 0.03
+
+[node name="Hoop" type="Node3D"]
+
+[node name="Hoop" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_xnq54")
+surface_material_override/0 = SubResource("StandardMaterial3D_vks3a")
+surface_material_override/1 = SubResource("StandardMaterial3D_plq0l")
+surface_material_override/2 = SubResource("StandardMaterial3D_0leoy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.525, 0)
+shape = SubResource("CylinderShape3D_g0lot")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, 0)
+shape = SubResource("BoxShape3D_eqwyj")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 3.1, 0.06)
+shape = SubResource("CylinderShape3D_a727e")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 3.1, 0.53)
+shape = SubResource("CylinderShape3D_a727e")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-3.58063e-08, -0.819152, -0.573576, 1, -4.37114e-08, 0, -2.50718e-08, -0.573576, 0.819152, 0.1396, 3.1, 0.106859)
+shape = SubResource("CylinderShape3D_a727e")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-3.58063e-08, -0.819152, 0.573576, 1, -4.37114e-08, 0, 2.50718e-08, 0.573576, 0.819152, 0.1396, 3.1, 0.488022)
+shape = SubResource("CylinderShape3D_a727e")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-3.58063e-08, -0.819152, 0.573576, 1, -4.37114e-08, 0, 2.50718e-08, 0.573576, 0.819152, -0.14, 3.1, 0.108)
+shape = SubResource("CylinderShape3D_a727e")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-3.58063e-08, -0.819152, -0.573576, 1, -4.37114e-08, 0, -2.50718e-08, -0.573576, 0.819152, -0.14, 3.1, 0.49)
+shape = SubResource("CylinderShape3D_a727e")
+
+[node name="CollisionShape3D9" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-1.35076e-08, -0.309017, -0.951057, 1, -4.37114e-08, 0, -4.1572e-08, -0.951057, 0.309017, -0.22, 3.1, 0.377)
+shape = SubResource("CylinderShape3D_a727e")
+
+[node name="CollisionShape3D10" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-1.35076e-08, -0.309017, 0.951057, 1, -4.37114e-08, 0, 4.1572e-08, 0.951057, 0.309017, 0.22, 3.1, 0.377)
+shape = SubResource("CylinderShape3D_a727e")
+
+[node name="CollisionShape3D11" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-1.35076e-08, -0.309017, 0.951057, 1, -4.37114e-08, -8.88178e-16, 4.1572e-08, 0.951057, 0.309017, -0.22, 3.1, 0.24)
+shape = SubResource("CylinderShape3D_a727e")
+
+[node name="CollisionShape3D12" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(-1.35076e-08, -0.309017, -0.951057, 1, -4.37114e-08, 0, -4.1572e-08, -0.951057, 0.309017, 0.22, 3.1, 0.240329)
+shape = SubResource("CylinderShape3D_a727e")
