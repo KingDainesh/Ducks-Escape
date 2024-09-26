@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://jjsdvujqq4xa" path="res://scences/wall_with_doorway_5m.tscn" id="5_naql3"]
 [ext_resource type="ArrayMesh" uid="uid://c7imyuwnub1du" path="res://assets/duck.obj" id="5_qfyct"]
 [ext_resource type="PackedScene" uid="uid://dgg7c4eugwikj" path="res://scences/Decorations/pickable_plant_pot.tscn" id="6_5n4dd"]
-[ext_resource type="PackedScene" uid="uid://cicb8pa6myei4" path="res://scences/table.tscn" id="6_8pc30"]
+[ext_resource type="PackedScene" path="res://scences/table.tscn" id="6_8pc30"]
 [ext_resource type="PackedScene" uid="uid://bn7yo77l4p14" path="res://scences/Decorations/door.tscn" id="6_pctx4"]
 [ext_resource type="PackedScene" uid="uid://pu3mtdq7cudh" path="res://scences/Decorations/monitor.tscn" id="8_c5m01"]
 [ext_resource type="PackedScene" uid="uid://bj6f4j2k8adys" path="res://scences/pickable_monitor.tscn" id="9_8xxoj"]
@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://dvh2jbfwf6drx" path="res://scences/Decorations/bench.tscn" id="22_e3efl"]
 [ext_resource type="PackedScene" uid="uid://croerbkx3l7og" path="res://scences/Decorations/cafe_table.tscn" id="23_3a4k5"]
 [ext_resource type="PackedScene" uid="uid://cbfqqchpoqj51" path="res://scences/Decorations/food_table.tscn" id="23_xm1bs"]
-[ext_resource type="PackedScene" path="res://scences/Decorations/pickable_batton.tscn" id="24_ju88x"]
+[ext_resource type="PackedScene" uid="uid://u28fb5kmqn7d" path="res://scences/Decorations/pickable_batton.tscn" id="24_ju88x"]
 [ext_resource type="PackedScene" uid="uid://c3ng3ki45myy2" path="res://scences/pickable_plate.tscn" id="25_6w1jl"]
 [ext_resource type="PackedScene" uid="uid://bg63bk5cp4sv4" path="res://scences/Decorations/bench_religion.tscn" id="27_5cxvm"]
 [ext_resource type="ArrayMesh" uid="uid://dhssj144mg5y7" path="res://assets/dumpster.obj" id="28_0biva"]
@@ -37,11 +37,11 @@
 [ext_resource type="ArrayMesh" uid="uid://blildgsd28d6m" path="res://assets/DumpsterClosed.obj" id="29_88o5r"]
 [ext_resource type="PackedScene" uid="uid://cp02c03qugltl" path="res://scences/pickable_book.tscn" id="29_ect45"]
 [ext_resource type="ArrayMesh" uid="uid://dnlqxm2sddhoj" path="res://assets/camera.obj" id="30_dkkjs"]
-[ext_resource type="Shape3D" path="res://collisions/new_box_shape_3d.tres" id="31_7jj8k"]
+[ext_resource type="Shape3D" uid="uid://bn0wk2fqjgf23" path="res://collisions/new_box_shape_3d.tres" id="31_7jj8k"]
 [ext_resource type="Script" path="res://scences/religious-offering.gd" id="32_4pf74"]
 [ext_resource type="ArrayMesh" uid="uid://chdg8vax4ltxx" path="res://assets/showerhead.obj" id="32_ji0um"]
-[ext_resource type="PackedScene" path="res://scences/Decorations/pickable_ball.tscn" id="32_vcmli"]
-[ext_resource type="PackedScene" path="res://scences/Decorations/hoop.tscn" id="33_pngyw"]
+[ext_resource type="PackedScene" uid="uid://djnmvemwj47up" path="res://scences/Decorations/pickable_ball.tscn" id="32_vcmli"]
+[ext_resource type="PackedScene" uid="uid://sg736qql6pvo" path="res://scences/Decorations/hoop.tscn" id="33_pngyw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fdmkg"]
 size = Vector3(15, 0.2, 16)
@@ -2609,7 +2609,7 @@ transform = Transform3D(-4.37114e-08, -0.258819, 0.965926, 0, 0.965926, 0.258819
 fov = 83.2069
 
 [node name="PickableBook" parent="." instance=ExtResource("29_ect45")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.245412, 1.18393, 14.9709)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.519858, 1.18393, 14.9709)
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9555, 1.62894, 7.6853)
@@ -2619,5 +2619,6 @@ script = ExtResource("32_4pf74")
 shape = SubResource("BoxShape3D_ike5d")
 
 [connection signal="area_shape_entered" from="Puzzles/Area3D" to="Puzzles/Area3D" method="_on_area_shape_entered"]
+[connection signal="area_shape_exited" from="Puzzles/Area3D" to="Puzzles/Area3D" method="_on_area_shape_exited"]
 [connection signal="area_shape_entered" from="Area3D" to="Area3D" method="_on_area_shape_entered"]
 [connection signal="area_shape_exited" from="Area3D" to="Area3D" method="_on_area_shape_exited"]
