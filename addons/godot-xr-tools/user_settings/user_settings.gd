@@ -13,6 +13,7 @@ enum WebXRPrimary {
 
 ## Testing puzzles
 var has_button_pressed : String = "No"
+var cell_opened = false
 
 
 @export_group("Input")

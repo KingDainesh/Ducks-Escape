@@ -1,6 +1,7 @@
-[gd_scene load_steps=45 format=3 uid="uid://borgpsutpb2am"]
+[gd_scene load_steps=47 format=3 uid="uid://borgpsutpb2am"]
 
 [ext_resource type="ArrayMesh" uid="uid://o0eiclwqtgyt" path="res://assets/toilet.obj" id="1_hbsfg"]
+[ext_resource type="Script" path="res://scences/cell_player.gd" id="1_p58nn"]
 [ext_resource type="ArrayMesh" uid="uid://s2y1m2wyoos0" path="res://assets/untitled.obj" id="2_n75s5"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="3_v464y"]
 [ext_resource type="ArrayMesh" uid="uid://n74oqpphom83" path="res://assets/light.obj" id="4_0ia2p"]
@@ -10,8 +11,9 @@
 [ext_resource type="ArrayMesh" uid="uid://sleq3n1eivoy" path="res://assets/mirror.obj" id="8_77j8y"]
 [ext_resource type="ArrayMesh" uid="uid://de5njd4s8nir4" path="res://assets/Wall_With_Hole.obj" id="9_36gmx"]
 [ext_resource type="ArrayMesh" uid="uid://cd1au4jdcsprv" path="res://assets/bars.obj" id="11_plyvg"]
-[ext_resource type="PackedScene" uid="uid://cfj60w0fsxt0v" path="res://scences/switch.tscn" id="12_tjq5q"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="13_k6x8q"]
 [ext_resource type="PackedScene" uid="uid://26hbsqkv4b63" path="res://scences/Poster.tscn" id="14_c1lx3"]
+[ext_resource type="PackedScene" uid="uid://6p8s73221r5a" path="res://scences/buttontoopen.tscn" id="14_fp1yt"]
 [ext_resource type="PackedScene" uid="uid://cm1j5f3pimble" path="res://scences/duck_nest.tscn" id="15_c400q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_si20a"]
@@ -110,6 +112,7 @@ size = Vector3(4.32104, 1.8432, 0.527588)
 size = Vector3(1.297, 2.30481, 0.129707)
 
 [node name="cell_player" type="Node3D"]
+script = ExtResource("1_p58nn")
 
 [node name="Cell" type="Node3D" parent="."]
 
@@ -310,12 +313,15 @@ surface_material_override/0 = SubResource("StandardMaterial3D_punj0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.950465, 1.0417, 1.44227)
 shape = SubResource("BoxShape3D_6jpl8")
 
-[node name="Switch" parent="." instance=ExtResource("12_tjq5q")]
-transform = Transform3D(-4.37114e-08, -8.74228e-08, -1, 0, -1, 8.74228e-08, -1, 3.82137e-15, 4.37114e-08, 1.60235, 0.928676, -0.00233543)
-
 [node name="Poster" parent="." instance=ExtResource("14_c1lx3")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5, 1.35, 0.001)
 freeze = true
 
 [node name="DuckNest" parent="." instance=ExtResource("15_c400q")]
 transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0.76154, 0.230194, -0.754607)
+
+[node name="Viewport2Din3D" parent="." instance=ExtResource("13_k6x8q")]
+transform = Transform3D(-4.37114e-11, 0, -0.001, 0, 0.001, 0, 0.001, 0, -4.37114e-11, 1.66979, 1.12863, 0.512238)
+screen_size = Vector2(1152, 648)
+scene = ExtResource("14_fp1yt")
+viewport_size = Vector2(1152, 648)
