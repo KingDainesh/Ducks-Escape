@@ -118,9 +118,6 @@ size = Vector3(150, 0.1, 150)
 [sub_resource type="BoxShape3D" id="BoxShape3D_gdsfn"]
 size = Vector3(150, 0.1, 150)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_flgws"]
-size = Vector3(30, 0.1, 30)
-
 [sub_resource type="BoxMesh" id="BoxMesh_gxs4s"]
 size = Vector3(30, 0.1, 30)
 
@@ -223,6 +220,9 @@ size = Vector3(9.85281, 3.5, 0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0e26p"]
 size = Vector3(2.2, 3.5, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_au8w7"]
+size = Vector3(2, 3.6, 0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_de46s"]
 size = Vector3(30, 3.6, 0.1)
@@ -627,6 +627,7 @@ omni_range = 8.61086
 
 [node name="CellRooms" type="StaticBody3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0572792, 4.18)
+visible = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/CellRooms"]
 shape = SubResource("BoxShape3D_lp0xu")
@@ -638,6 +639,7 @@ mesh = SubResource("BoxMesh_ef5xq")
 
 [node name="Library" type="StaticBody3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.04)
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Library"]
 mesh = SubResource("BoxMesh_ixc5k")
@@ -658,9 +660,6 @@ shape = SubResource("BoxShape3D_gdsfn")
 
 [node name="Yard" type="StaticBody3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.1, 0.001, -15.05)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/Yard"]
-shape = SubResource("BoxShape3D_flgws")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor/Yard"]
 mesh = SubResource("BoxMesh_gxs4s")
@@ -941,7 +940,7 @@ mesh = SubResource("BoxMesh_0e26p")
 surface_material_override/0 = SubResource("StandardMaterial3D_rh8g7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Yard/StaticBody3D6"]
-shape = SubResource("BoxShape3D_8kfoc")
+shape = SubResource("BoxShape3D_au8w7")
 
 [node name="StaticBody3D7" type="StaticBody3D" parent="Walls/Yard"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 37, 1.8, -15)
@@ -957,7 +956,7 @@ shape = SubResource("BoxShape3D_nlyg8")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7, 1.8, -19)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Walls/Yard/StaticBody3D10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.27734, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.351576, 0, 0)
 mesh = SubResource("BoxMesh_4s716")
 surface_material_override/0 = SubResource("StandardMaterial3D_rh8g7")
 
@@ -2610,6 +2609,7 @@ fov = 83.2069
 
 [node name="PickableBook" parent="." instance=ExtResource("29_ect45")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.519858, 1.18393, 14.9709)
+mass = 99.0
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9555, 1.62894, 7.6853)

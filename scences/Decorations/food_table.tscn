@@ -17,7 +17,7 @@ size = Vector3(2.00488, 0.207275, 1)
 [node name="FoodTable" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-collision_layer = 4
+collision_layer = 6
 collision_mask = 7
 
 [node name="FoodTable" type="MeshInstance3D" parent="StaticBody3D"]
