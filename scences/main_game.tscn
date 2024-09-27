@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://jjsdvujqq4xa" path="res://scences/wall_with_doorway_5m.tscn" id="5_naql3"]
 [ext_resource type="ArrayMesh" uid="uid://c7imyuwnub1du" path="res://assets/duck.obj" id="5_qfyct"]
 [ext_resource type="PackedScene" uid="uid://dgg7c4eugwikj" path="res://scences/Decorations/pickable_plant_pot.tscn" id="6_5n4dd"]
-[ext_resource type="PackedScene" path="res://scences/table.tscn" id="6_8pc30"]
+[ext_resource type="PackedScene" uid="uid://baa3jagnpb582" path="res://scences/table.tscn" id="6_8pc30"]
 [ext_resource type="PackedScene" uid="uid://bn7yo77l4p14" path="res://scences/Decorations/door.tscn" id="6_pctx4"]
 [ext_resource type="PackedScene" uid="uid://pu3mtdq7cudh" path="res://scences/Decorations/monitor.tscn" id="8_c5m01"]
 [ext_resource type="PackedScene" uid="uid://bj6f4j2k8adys" path="res://scences/pickable_monitor.tscn" id="9_8xxoj"]
@@ -2538,7 +2538,7 @@ shape = SubResource("BoxShape3D_lmt11")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 22.75, 1.222, 1)
 
 [node name="player" parent="." instance=ExtResource("12_2g66n")]
-transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 0.19043, 1.52748, -0.116781)
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 0.19043, 1.52748, -0.191975)
 
 [node name="Hints" type="Node3D" parent="."]
 
@@ -2609,7 +2609,6 @@ fov = 83.2069
 
 [node name="PickableBook" parent="." instance=ExtResource("29_ect45")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.519858, 1.18393, 14.9709)
-mass = 99.0
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9555, 1.62894, 7.6853)

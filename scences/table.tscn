@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cicb8pa6myei4"]
+[gd_scene load_steps=4 format=3 uid="uid://baa3jagnpb582"]
 
 [ext_resource type="ArrayMesh" uid="uid://cwrlu4tssqd4n" path="res://assets/table.obj" id="1_scjfw"]
 
@@ -19,21 +19,21 @@ mesh = ExtResource("1_scjfw")
 skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00115967, 0.000854492, 0.00106812)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -0.00187039, 0.944933, 0.00903582)
 shape = SubResource("BoxShape3D_jer67")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111, -0.161, 0.347)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -0.352289, 0.229833, 0.103591)
 shape = SubResource("BoxShape3D_ef70o")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.122, -0.161, 0.34678)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, -0.341845, 0.229833, -0.129175)
 shape = SubResource("BoxShape3D_ef70o")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.111, -0.161, -0.338309)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0.33236, 0.229833, 0.133663)
 shape = SubResource("BoxShape3D_ef70o")
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.122, -0.161, -0.338529)
+transform = Transform3D(-8.74228e-08, 0, 2, 0, 2, 0, -2, 0, -8.74228e-08, 0.342804, 0.229833, -0.0991034)
 shape = SubResource("BoxShape3D_ef70o")
